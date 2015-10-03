@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>myTooltip</title>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,800,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+  <script src="jquery-1.11.3.min.js"></script>
+  <script src="jquery.mytooltip.js"></script>
+  <link rel="stylesheet" href="jquery.mytooltip.css">
+
+  <script>
+    $(document).ready(function() {
+      $('.js-mytooltip').myTooltip();
+
+      $('.js-mytooltip-template').myTooltip({
+        'offset': 15,
+        'theme': 'light',
+        'customClass': 'mytooltip-template',
+        'cursorHelp': true,
+        'template':
+        '<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Mars_23_aug_2003_hubble.jpg/1024px-Mars_23_aug_2003_hubble.jpg">' +
+        'Mars is the fourth planet from the Sun and the second smallest planet in the Solar System, after Mercury.' +
+        '  Named after the Roman god of war, it is often referred to as the "Red Planet" because the iron oxide prevalent' +
+        ' on its surface gives it a reddish appearance. <br> ' +
+        '<a href="https://en.wikipedia.org/wiki/Mars" target="_blank">read more</a><p>'
+      })
+
+      // custom-events
+      $('.custom-event').on('show-before', function() {
+        console.log('show-before!')
+      });
+
+      $('.custom-event').on('show-complete', function() {
+        console.log('show-complete!');
+      });
+
+      $('.custom-event').on('hide-before', function() {
+        console.log('hide-before!');
+      });
+
+      $('.custom-event').on('hide-complete', function() {
+        console.log('hide-complete!');
+      });
+
+      // destroy
+      $('.destroy-active').on('click', function(event) {
+        event.preventDefault();
+        $('.destroy-element').myTooltip('destroy');
+      });
+
+
+      $('.add-element').on('click', function(event) {
+        event.preventDefault();
+        $(this).after('<br><div class="js-mytooltip type-inline-block style-block style-block-three"' +
+            ' data-mytooltip-animate-duration="150" data-mytooltip-direction="right" data-mytooltip-class="align-center"' +
+            ' data-mytooltip-text="Wow!<br> This dinamic element!">New element</div>');
+
+        $('.js-mytooltip').myTooltip('update');
+
+      });
+
+
+    });
+  </script>
+
+  <style>
+    /* global */
+    * {
+      padding: 0;
+      margin: 0;
+      outline: 0;
+      text-decoration: none;
+      box-sizing: border-box;
+    }
+    img {
+      max-width: 100%;
+    }
+    a {
+      color: #2C81B3;
+    }
+    a:hover {
+      color: #41A5E0;
+    }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+    }
+    .wrapper {
+      width: 1280px;
+      margin: 0 auto;
+    }
+    .wrapper:after {
+      content: ".";
+      display: block;
+      clear: both;
+      visibility: hidden;
+      height: 0;
+    }
+    .left {
+      float: left;
+    }
+    .right {
+      float: right;
+    }
+    .align-center {
+      text-align: center;
+    }
+
+    /* header */
+    .header-bar {
+      background: #34353C;
+      padding: 20px 0;
+    }
+    .download {
+      position: relative;
+      padding: 10px;
+      display: inline-block;
+      white-space: nowrap;
+      font-size: 16px;
+      background: #F16F51;
+      color: #FFF;
+    }
+    .download:before {
+      right: -21px;
+      width: 42px;
+      height: 42px;
+      position: absolute;
+      top: 0;
+      content: '';
+      background-color: inherit;
+      -webkit-transform: rotate(45deg) skew(18.435deg,18.435deg) scale(.53);
+      -ms-transform: rotate(45deg) skew(18.435deg,18.435deg) scale(.53);
+    }
+    .download:hover {
+      background: #DA5D41;
+      color: #FFF;
+    }
+    .download:hover:before {
+      background: #DA5D41;
+    }
+    .top-link {
+      margin-top: 10px;
+      margin-right: 20px;
+      color: #FFF5C1;
+    }
+    .top-link:hover {
+      color: #F16F51;
+    }
+    .logo {
+      margin-top: 10px;
+      color: #F16F51;
+    }
+    .logo span {
+      color: #FFF5C1;
+    }
+    .logo:hover {
+      color: #FFF5C1;
+    }
+    .logo:hover span {
+      color: #F16F51;
+    }
+    .header-info {
+      padding: 30px 0;
+      background: #25272F;
+    }
+    .header-title {
+      color: #FFF;
+      font-weight: 500;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    /* content */
+    .content {
+
+    }
+    .content-block {
+      padding: 20px 0;
+    }
+    .content-first {
+      background: #FFF;
+    }
+    .content-second {
+      background: #F6F6F6;
+      border-top: 1px solid #F1F1F1;
+      border-bottom: 1px solid #F1F1F1;
+    }
+    .content-title {
+      text-align: center;
+      font-size: 26px;
+      font-weight: normal;
+      color: #F16F51;
+    }
+    .content-subtitle {
+      text-align: center;
+      font-size: 18px;
+      font-weight: normal;
+      color: #25272F;
+    }
+    .type-inline-block {
+      display: inline-block;
+    }
+    .style-block {
+      padding: 5px 12px;
+      margin: 10px 0;
+      color: #FFF;
+      cursor: pointer;
+    }
+    .style-block-one {
+      background: #41A5E0;
+    }
+    .style-block-two {
+      background: #FAC458;
+    }
+    .style-block-three {
+      background: #FA965A;
+    }
+    .style-block-four {
+      background: #25B578;
+    }
+    .form {
+      width: 400px;
+      margin: 0 auto;
+    }
+    .input {
+      width: 100%;
+      padding: 15px;
+      margin-bottom: 15px;
+      border: 1px solid #E6E6E6;
+      border-radius: 3px;
+    }
+
+    /**/
+    .mytooltip-template {
+      width: 250px;
+      font-size: 14px;
+    }
+    .mytooltip-template img {
+      margin-bottom: 10px;
+    }
+    .my-tooltip {
+      padding: 5px 10px;
+      width: 500px;
+      border-radius: 30px;
+    }
+
+    /* footer */
+    .footer {
+      background: #34353C;
+      padding: 20px 0;
+    }
+
+
+  </style>
+
+</head>
+<body>
+
+<div class="header-bar">
+  <div class="wrapper">
+    <a href="#" class="logo left"><span>my</span>Tooltip.js</a>
+    <a href="#" class="download right">Download</a>
+    <a href="#start-example" class="top-link right">Example</a>
+  </div>
+</div>
+
+<div class="header-info">
+  <div class="wrapper">
+    <h1 class="header-title">myTooltip is a powerful and versatile jQuery plugin which allows you to create popup tooltip</h1>
+  </div>
+</div>
+
+<div class="content" id="start-example">
+
+  <div class="content-block content-first align-center">
+    <h2 class="content-title">Direction</h2>
+    <h3 class="content-subtitle">Direction tooltips</h3>
+    <div class="js-mytooltip type-inline-block style-block style-block-one" data-mytooltip-class="align-center"
+         data-mytooltip-text="Direction default - top">Top
+    </div>
+    <br>
+    <div class="js-mytooltip type-inline-block style-block style-block-one" data-mytooltip-class="align-center"
+         data-mytooltip-direction="right" data-mytooltip-text="Direction right">Right
+    </div>
+    <br>
+    <div class="js-mytooltip type-inline-block style-block style-block-one" data-mytooltip-class="align-center"
+         data-mytooltip-direction="left" data-mytooltip-text="Direction left">Left
+    </div>
+    <br>
+    <div class="js-mytooltip type-inline-block style-block style-block-one" data-mytooltip-class="align-center"
+         data-mytooltip-direction="bottom" data-mytooltip-text="Direction bottom">Bottom
+    </div>
+  </div>
+
+  <div class="content-block content-second align-center">
+    <h2 class="content-title">Offset</h2>
+    <h3 class="content-subtitle">Оffset tooltips</h3>
+    <div class="js-mytooltip type-inline-block style-block style-block-two" data-mytooltip-class="align-center"
+         data-mytooltip-text="Offset default - 10px">Default
+    </div>
+    <br>
+    <div class="js-mytooltip type-inline-block style-block style-block-two" data-mytooltip-class="align-center"
+         data-mytooltip-offset="20" data-mytooltip-direction="left" data-mytooltip-text="Offset 20px">Offset custom
+    </div>
+  </div>
+
+  <div class="content-block content-first align-center">
+    <h2 class="content-title">Template</h2>
+    <h3 class="content-subtitle">HTML template or plain text</h3>
+    <div class="js-mytooltip type-inline-block style-block style-block-three" data-mytooltip-class="align-center"
+         data-mytooltip-direction="right" data-mytooltip-text="plain text">hover to me
+    </div>
+    <br>
+
+    <p style="width: 270px;margin: 0 auto;text-align: left;">The chemicals allow the water to remain liquid at lower
+      temperatures but also help keep it
+      from boiling off in the
+      thin atmosphere of <a class="js-mytooltip-template" data-mytooltip-direction="right" href="#">Mars</a>, the
+      researchers said.</p>
+  </div>
+
+  <div class="content-block content-second align-center">
+    <h2 class="content-title">Animate</h2>
+    <h3 class="content-subtitle">Animation options</h3>
+    <div class="js-mytooltip type-inline-block style-block style-block-four"  data-mytooltip-class="align-center"
+         data-mytooltip-text="Slow animate duration - 200mc">Animate duration default
+    </div>
+    <br>
+    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-animate-duration="100"
+         data-mytooltip-class="align-center" data-mytooltip-direction="left"
+         data-mytooltip-text="Slow animate duration - 100mc">Fast animate duration
+    </div>
+    <br>
+    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-animate-duration="400"
+         data-mytooltip-class="align-center" data-mytooltip-text="Slow animate duration - 400mc">Slow animate duration
+    </div>
+    <br>
+    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-class="align-center"
+         data-mytooltip-direction="left" data-mytooltip-text="Animate offset 15px">Animate offset default
+    </div>
+    <br>
+    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-class="align-center"
+         data-mytooltip-direction="right" data-mytooltip-animate-offset-px="40"
+         data-mytooltip-text="Animate offset 40px">Animate offset custom
+    </div>
+    <br>
+    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-class="align-center"
+         data-mytooltip-direction="bottom" data-mytooltip-animate-offset-px="0"
+         data-mytooltip-text="Animate offset 0px">Animate offset custom two
+    </div>
+  </div>
+
+  <div class="content-block content-first align-center">
+    <h2 class="content-title">Action</h2>
+    <h3 class="content-subtitle">Event support</h3>
+    <div class="js-mytooltip type-inline-block style-block style-block-one" data-mytooltip-class="align-center"
+         data-mytooltip-direction="right" data-mytooltip-text="Event default - hover">Hover me
+    </div>
+    <br>
+    <div class="js-mytooltip type-inline-block style-block style-block-one" data-mytooltip-class="align-center"
+         data-mytooltip-direction="right" data-mytooltip-action="click" data-mytooltip-text="Event click">Click me
+    </div>
+    <br>
+    <h3 style="margin-bottom: 10px;" class="content-subtitle">Focus:</h3>
+    <div class="form">
+      <input type="text" class="input js-mytooltip" data-mytooltip-text="Enter your first name" data-mytooltip-theme="danger"
+             data-mytooltip-action="focus" data-mytooltip-direction="right" placeholder="First name">
+      <input type="text" class="input js-mytooltip" data-mytooltip-text="Enter your last name" data-mytooltip-theme="danger"
+             data-mytooltip-action="focus" data-mytooltip-direction="right" placeholder="Last name">
+      <input type="email" class="input js-mytooltip" data-mytooltip-text="Enter your valid Email" data-mytooltip-theme="danger"
+             data-mytooltip-action="focus" data-mytooltip-direction="right" placeholder="Email">
+    </div>
+  </div>
+
+  <div class="content-block content-second align-center">
+    <h2 class="content-title">Events</h2>
+    <h3 class="content-subtitle">Custom events</h3>
+    <div class="js-mytooltip type-inline-block style-block style-block-two custom-event" data-mytooltip-class="align-center"
+          data-mytooltip-text="Event log in console">Open console and hover me
+    </div>
+  </div>
+
+  <div class="content-block content-first align-center">
+    <h2 class="content-title">Methods</h2>
+    <h3 class="content-subtitle">Public methods</h3>
+    <div class="js-mytooltip destroy-element type-inline-block style-block style-block-three" data-mytooltip-class="align-center"
+         data-mytooltip-text="click to destroy to delete element from myTooltip">Hover me
+    </div>
+    <br>
+    <a class="destroy-active" href="#">Call destroy</a>
+    <br>
+    <a class="add-element" href="#">Click to add new Elements and call public method update</a>
+  </div>
+
+  <div class="content-block content-second align-center">
+    <h2 class="content-title">Themes</h2>
+    <h3 class="content-subtitle">Ready-to-use</h3>
+    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-class="align-center"
+         data-mytooltip-direction="right" data-mytooltip-text="Theme default">Default
+    </div>
+    <br>
+    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-class="align-center"
+         data-mytooltip-direction="left" data-mytooltip-theme="danger" data-mytooltip-text="Theme danger">Danger
+    </div>
+    <br>
+    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-class="align-center"
+         data-mytooltip-direction="right" data-mytooltip-theme="warning" data-mytooltip-text="Theme warning">Warning
+    </div>
+    <br>
+    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-class="align-center"
+         data-mytooltip-direction="left" data-mytooltip-theme="info" data-mytooltip-text="Theme info">Info
+    </div>
+    <br>
+    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-class="align-center"
+         data-mytooltip-direction="right" data-mytooltip-theme="success" data-mytooltip-text="Theme success">Success
+    </div>
+    <br>
+    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-class="align-center"
+         data-mytooltip-direction="left" data-mytooltip-theme="light" data-mytooltip-text="Theme light">Light
+    </div>
+  </div>
+
+  <div class="content-block content-first align-center">
+    <h2 class="content-title">Custom theme</h2>
+    <h3 class="content-subtitle">Your custom style</h3>
+    <div class="js-mytooltip type-inline-block style-block style-block-one" data-mytooltip-class="my-tooltip align-center"
+         data-mytooltip-text="Add class custom style">My tooltip
+    </div>
+  </div>
+
+  <div class="content-block content-second align-center">
+    <h2 class="content-title">Others</h2>
+    <h3 class="content-subtitle">Other examples</h3>
+    <div style="border-radius: 100px" class="js-mytooltip type-inline-block style-block style-block-two"
+         data-mytooltip-class="align-center"
+         data-mytooltip-direction="right" data-mytooltip-cursor-help="true" data-mytooltip-text="Cursor help">?
+    </div>
+    <br>
+    <div style="border-radius: 100px" class="js-mytooltip type-inline-block style-block style-block-two"
+         data-mytooltip-class="align-center" data-mytooltip-hover="false"
+         data-mytooltip-direction="right" data-mytooltip-text="Try it hover">Hover me
+    </div>
+  </div>
+</div>
+
+<div class="footer align-center">
+  <a href="#" class="download">Getting started</a>
+</div>
+
+</body>
+</html>
