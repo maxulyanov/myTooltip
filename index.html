@@ -52,7 +52,7 @@
       $('.add-element').on('click', function(event) {
         event.preventDefault();
         $(this).after('<br><div class="js-mytooltip type-inline-block style-block style-block-three"' +
-            ' data-mytooltip-animate-duration="150" data-mytooltip-direction="right" data-mytooltip-class="align-center"' +
+            ' data-mytooltip-animate-duration="150" data-mytooltip-direction="left" data-mytooltip-class="align-center"' +
             ' data-mytooltip-text="Wow!<br> This dinamic element!">New element</div>');
 
         $('.js-mytooltip').myTooltip('update');
@@ -128,8 +128,10 @@
       top: 0;
       content: '';
       background-color: inherit;
+      -moz-transform: rotate(45deg) skew(18.435deg,18.435deg) scale(.53);
       -webkit-transform: rotate(45deg) skew(18.435deg,18.435deg) scale(.53);
       -ms-transform: rotate(45deg) skew(18.435deg,18.435deg) scale(.53);
+      transform: rotate(45deg) skew(18.435deg,18.435deg) scale(.53);
     }
     .download:hover {
       background: #DA5D41;
@@ -438,7 +440,12 @@
     <br>
     <div style="border-radius: 100px" class="js-mytooltip type-inline-block style-block style-block-two"
          data-mytooltip-class="align-center" data-mytooltip-hover="false"
-         data-mytooltip-direction="right" data-mytooltip-text="Try it hover">Hover me
+         data-mytooltip-direction="left" data-mytooltip-text="Try it hover">Hover me
+    </div>
+    <br>
+    <div style="border-radius: 100px" class="js-mytooltip type-inline-block style-block style-block-two"
+         data-mytooltip-class="align-center"
+         data-mytooltip-direction="right" data-mytooltip-disposable="true" data-mytooltip-text="Disposable tip">Disposable
     </div>
   </div>
 </div>

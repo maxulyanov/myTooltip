@@ -53,9 +53,16 @@
 
   var methods = {
 
+    /**
+     *
+     * @param options
+     */
     init: function (options) {
 
       var self = $(this);
+
+      if(self.attr('data-mytooltip-id')) return;
+
       var id = tooltipId;
       tooltipId++;
       self.attr('data-mytooltip-id', id);
@@ -79,6 +86,10 @@
 
     },
 
+    /**
+     *
+     * @param data
+     */
     create: function (data) {
 
       var id = data.id;
@@ -113,12 +124,21 @@
 
     },
 
+    /**
+     *
+     */
     resetLastShow: function () {
 
       tooltipLastShowId = false;
 
     },
 
+    /**
+     *
+     * @param tooltip
+     * @param data
+     * @returns {boolean}
+     */
     show: function (tooltip, data) {
 
       var options = data.options;
@@ -162,6 +182,11 @@
 
     },
 
+    /**
+     *
+     * @param tooltip
+     * @param options
+     */
     hide: function (tooltip, options) {
 
       var duration;
@@ -181,12 +206,17 @@
       methods.callEvents(base, eventsNames.hideBefore);
 
       item.stop().fadeOut(duration, function () {
-        methods.remove(tooltip, base);
+        methods.remove(tooltip, base, id);
       });
 
     },
 
-    remove: function (tooltip, base) {
+    /**
+     *
+     * @param tooltip
+     * @param base
+     */
+    remove: function (tooltip, base, id) {
 
       if (tooltip) {
         $('.' + tooltipClasses.item).each(function () {
@@ -201,8 +231,18 @@
 
       methods.callEvents(base, eventsNames.hideComplete);
 
+      if(tooltipsStorage[id].options.disposable) {
+        methods.destroy({'id':id});
+      }
+
     },
 
+    /**
+     *
+     * @param data
+     * @param tooltip
+     * @returns {boolean}
+     */
     setPosition: function (data, tooltip) {
 
       var current = $(data.current);
@@ -285,6 +325,11 @@
 
     },
 
+    /**
+     *
+     * @param data
+     * @returns {boolean}
+     */
     setEvents: function (data) {
 
       var action = data.options.action;
@@ -334,6 +379,10 @@
 
     },
 
+    /**
+     *
+     * @returns {{direction: string, offset: number, customClass: string, template: null, action: string, theme: string, cursorHelp: boolean, hoverTooltip: boolean, animateOffsetPx: number, animateDuration: number}}
+     */
     getDefaultOptions: function () {
 
       return {
@@ -343,6 +392,7 @@
         'template'        : null,
         'action'          : 'hover',
         'theme'           : 'default',
+        'disposable'      : false,
         'cursorHelp'      : false,
         'hoverTooltip'    : true,
         'animateOffsetPx' : 15,
@@ -351,6 +401,12 @@
 
     },
 
+    /**
+     *
+     * @param current
+     * @param options
+     * @returns {{direction: (*|string|string), offset: (*|number|offset|Function), customClass: (*|string|string), template: (*|null), action: (*|string|string), theme: (*|string|string), hoverTooltip: *, cursorHelp: (*|boolean), animateOffsetPx: *, animateDuration: (*|number)}}
+     */
     mergeAttributesAndOptions: function (current, options) {
 
       return {
@@ -360,6 +416,8 @@
         'template'        : current.data('mytooltip-text')              || options.template,
         'action'          : current.data('mytooltip-action')            || options.action,
         'theme'           : current.data('mytooltip-theme')             || options.theme,
+        'disposable'      : current.data('mytooltip-disposable') != undefined ?
+                            current.data('mytooltip-disposable') : options.disposable,
         'hoverTooltip'    : current.data('mytooltip-hover') != undefined ?
                             current.data('mytooltip-hover'):options.hoverTooltip,
         'cursorHelp'      : current.data('mytooltip-cursor-help')       || options.cursorHelp,
@@ -371,7 +429,9 @@
     },
 
     /**
-     * Call plugin events
+     *
+     * @param current
+     * @param event
      */
     callEvents: function (current, event) {
 
@@ -379,39 +439,61 @@
 
     },
 
+    /**
+     *
+     * @param id
+     * @returns {boolean}
+     */
     isEmptyObjectProperty: function(id) {
 
       return tooltipsStorage[id] !== undefined;
 
     },
 
-    update: function(args, selector) {
+    /**
+     *
+     * @param args
+     * @param selector
+     */
+    update: function(params) {
 
-      $(this).myTooltip(tooltipsSettingsStorage[selector]);
+      $(this).myTooltip(tooltipsSettingsStorage[params.selector]);
 
     },
 
     /**
      * Delete item from the plugin
      */
-    destroy: function () {
+    destroy: function (params) {
 
-      var $self = $(this);
-      for (var block in tooltipsStorage) {
-        if (tooltipsStorage.hasOwnProperty(block)) {
-          if ($self.data('mytooltip-id') === $(tooltipsStorage[block].current).data('mytooltip-id')) {
-            delete tooltipsStorage[block];
-            $self.removeClass(tooltipClasses.base);
-            var attributes = $.extend({}, $self.get(0).attributes);
-            $.each(attributes, function (i, attr) {
-              var name = attr.name;
-              if (~name.indexOf('data-mytooltip')) {
-                $self.removeAttr(name);
-              }
-            });
-
+      var $self;
+      var id = params.id;
+      if (id !== undefined) {
+        $self = $('.' + tooltipClasses.base + '[data-mytooltip-id="' + id + '"]');
+        delete tooltipsStorage[id];
+        removeData($self);
+      }
+      else {
+        $self = $(this);
+        for (var block in tooltipsStorage) {
+          if (tooltipsStorage.hasOwnProperty(block)) {
+            if ($self.data('mytooltip-id') === $(tooltipsStorage[block].current).data('mytooltip-id')) {
+              delete tooltipsStorage[block];
+              removeData($self);
+            }
           }
         }
+      }
+
+      function removeData(self) {
+        self.removeClass(tooltipClasses.base);
+        var attributes = $.extend({}, self.get(0).attributes);
+        $.each(attributes, function (i, attr) {
+          var name = attr.name;
+          if (~name.indexOf('data-mytooltip')) {
+            self.removeAttr(name);
+          }
+        });
       }
 
     },
@@ -446,7 +528,10 @@
 
     return this.each(function () {
       if (methods[method]) {
-        return methods[method].apply(this, [args, selector]);
+        return methods[method].apply(this, [{
+          'args': args,
+          'selector': selector
+        }]);
       }
       else if (typeof method === 'object' || !method) {
         tooltipsSettingsStorage[selector] = args[0];
