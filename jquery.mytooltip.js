@@ -67,8 +67,8 @@
       tooltipId++;
       self.attr('data-mytooltip-id', id);
 
-      var currentOptions = $.extend(true, {}, methods.getDefaultOptions(), options);
-      currentOptions = methods.mergeAttributesAndOptions(self, currentOptions);
+      var userOptions = $.extend(true, {}, options, methods.getAttrOptions(self));
+      var currentOptions = $.extend(true, {}, methods.getDefaultOptions(), userOptions);
 
       if(currentOptions.template === null) return;
 
@@ -142,10 +142,11 @@
     show: function (tooltip, data) {
 
       var options = data.options;
+      var duration = parseInt(options.animateDuration);
 
       tooltip.fadeIn({
         queue: false,
-        duration: options.animateDuration
+        duration: duration
       });
 
       // Variants
@@ -153,22 +154,22 @@
         case 'top':
           tooltip.animate({
             'top': parseInt(tooltip.css('top')) + options.animateOffsetPx
-          }, options.animateDuration);
+          }, duration);
           break;
         case 'right':
           tooltip.animate({
             'left': parseInt(tooltip.css('left')) - options.animateOffsetPx
-          }, options.animateDuration);
+          }, duration);
           break;
         case 'bottom':
           tooltip.animate({
             'top': parseInt(tooltip.css('top')) - options.animateOffsetPx
-          }, options.animateDuration);
+          }, duration);
           break;
         case 'left':
           tooltip.animate({
             'left': parseInt(tooltip.css('left')) + options.animateOffsetPx
-          }, options.animateDuration);
+          }, duration);
           break;
         default :
           methods.error('Direction: ' + options.direction + ' not found!');
@@ -215,6 +216,7 @@
      *
      * @param tooltip
      * @param base
+     * @param id
      */
     remove: function (tooltip, base, id) {
 
@@ -257,7 +259,7 @@
         width: tooltip.outerWidth()
       };
 
-      var animateOffsetPx = options.animateOffsetPx ? options.animateOffsetPx : 0;
+      var animateOffsetPx = options.animateOffsetPx ? parseInt(options.animateOffsetPx) : 0;
 
       var backing = tooltip.find('.mytooltip-backing');
       var sizeBacking = 0;
@@ -364,7 +366,8 @@
           });
           current.on(actionLose, function (event) {
             methods.resetLastShow();
-            if (!options.hoverTooltip) {
+
+            if (!options.hoverTooltip || options.hoverTooltip === 'false' ) {
               methods.hide();
             }
             else if (!$(event.relatedTarget).is('.' + tooltipClasses.item + ',' + '.' + tooltipClasses.backing)) {
@@ -376,6 +379,38 @@
           methods.error('Action: ' + options.action + ' not found!');
           return false;
       }
+
+    },
+
+    /**
+     *
+     * @param current
+     * @returns {{}}
+     */
+    getAttrOptions: function (current) {
+
+      var defaultOptions = this.getDefaultOptions();
+      var dataOptions = {};
+
+      for (var option in defaultOptions) {
+        var symbolArray = option.split('');
+        var currentAttrName = '';
+        symbolArray.forEach(function (item) {
+          var itemToLowerCase = item.toLocaleLowerCase();
+          if (item !== itemToLowerCase) {
+            currentAttrName += '-';
+          }
+          currentAttrName += itemToLowerCase;
+        });
+
+        var dataAttrValue = $(current).attr('data-mytooltip-' + currentAttrName);
+
+        if (dataAttrValue !== undefined) {
+          dataOptions[option] = dataAttrValue;
+        }
+      }
+
+      return dataOptions;
 
     },
 
@@ -401,32 +436,6 @@
 
     },
 
-    /**
-     *
-     * @param current
-     * @param options
-     * @returns {{direction: (*|string|string), offset: (*|number|offset|Function), customClass: (*|string|string), template: (*|null), action: (*|string|string), theme: (*|string|string), hoverTooltip: *, cursorHelp: (*|boolean), animateOffsetPx: *, animateDuration: (*|number)}}
-     */
-    mergeAttributesAndOptions: function (current, options) {
-
-      return {
-        'direction'       : current.data('mytooltip-direction')         || options.direction,
-        'offset'          : current.data('mytooltip-offset')            || options.offset,
-        'customClass'     : current.data('mytooltip-class')             || options.customClass,
-        'template'        : current.data('mytooltip-text')              || options.template,
-        'action'          : current.data('mytooltip-action')            || options.action,
-        'theme'           : current.data('mytooltip-theme')             || options.theme,
-        'disposable'      : current.data('mytooltip-disposable') != undefined ?
-                            current.data('mytooltip-disposable') : options.disposable,
-        'hoverTooltip'    : current.data('mytooltip-hover') != undefined ?
-                            current.data('mytooltip-hover'):options.hoverTooltip,
-        'cursorHelp'      : current.data('mytooltip-cursor-help')       || options.cursorHelp,
-        'animateOffsetPx' : current.data('mytooltip-animate-offset-px') >= 0 ?
-                            current.data('mytooltip-animate-offset-px') : options.animateOffsetPx,
-        'animateDuration' : current.data('mytooltip-animate-duration')  || options.animateDuration
-      }
-
-    },
 
     /**
      *

@@ -52,8 +52,8 @@
       $('.add-element').on('click', function(event) {
         event.preventDefault();
         $(this).after('<br><div class="js-mytooltip type-inline-block style-block style-block-three"' +
-            ' data-mytooltip-animate-duration="150" data-mytooltip-direction="left" data-mytooltip-class="align-center"' +
-            ' data-mytooltip-text="Wow!<br> This dinamic element!">New element</div>');
+            ' data-mytooltip-animate-duration="150" data-mytooltip-direction="left" data-mytooltip-custom-class="align-center"' +
+            ' data-mytooltip-template="Wow!<br> This dinamic element!">New element</div>');
 
         $('.js-mytooltip').myTooltip('update');
 
@@ -277,40 +277,40 @@
   <div class="content-block content-first align-center">
     <h2 class="content-title">Direction</h2>
     <h3 class="content-subtitle">Direction tooltips</h3>
-    <div class="js-mytooltip type-inline-block style-block style-block-one" data-mytooltip-class="align-center"
-         data-mytooltip-text="Direction default - top">Top
+    <div class="js-mytooltip type-inline-block style-block style-block-one" data-mytooltip-custom-class="align-center"
+         data-mytooltip-template="Direction default - top">Top
     </div>
     <br>
-    <div class="js-mytooltip type-inline-block style-block style-block-one" data-mytooltip-class="align-center"
-         data-mytooltip-direction="right" data-mytooltip-text="Direction right">Right
+    <div class="js-mytooltip type-inline-block style-block style-block-one" data-mytooltip-custom-class="align-center"
+         data-mytooltip-direction="right" data-mytooltip-template="Direction right">Right
     </div>
     <br>
-    <div class="js-mytooltip type-inline-block style-block style-block-one" data-mytooltip-class="align-center"
-         data-mytooltip-direction="left" data-mytooltip-text="Direction left">Left
+    <div class="js-mytooltip type-inline-block style-block style-block-one" data-mytooltip-custom-class="align-center"
+         data-mytooltip-direction="left" data-mytooltip-template="Direction left">Left
     </div>
     <br>
-    <div class="js-mytooltip type-inline-block style-block style-block-one" data-mytooltip-class="align-center"
-         data-mytooltip-direction="bottom" data-mytooltip-text="Direction bottom">Bottom
+    <div class="js-mytooltip type-inline-block style-block style-block-one" data-mytooltip-custom-class="align-center"
+         data-mytooltip-direction="bottom" data-mytooltip-template="Direction bottom">Bottom
     </div>
   </div>
 
   <div class="content-block content-second align-center">
     <h2 class="content-title">Offset</h2>
     <h3 class="content-subtitle">Оffset tooltips</h3>
-    <div class="js-mytooltip type-inline-block style-block style-block-two" data-mytooltip-class="align-center"
-         data-mytooltip-text="Offset default - 10px">Default
+    <div class="js-mytooltip type-inline-block style-block style-block-two" data-mytooltip-custom-class="align-center"
+         data-mytooltip-template="Offset default - 10px">Default
     </div>
     <br>
-    <div class="js-mytooltip type-inline-block style-block style-block-two" data-mytooltip-class="align-center"
-         data-mytooltip-offset="20" data-mytooltip-direction="left" data-mytooltip-text="Offset 20px">Offset custom
+    <div class="js-mytooltip type-inline-block style-block style-block-two" data-mytooltip-custom-class="align-center"
+         data-mytooltip-offset="20" data-mytooltip-direction="left" data-mytooltip-template="Offset 20px">Offset custom
     </div>
   </div>
 
   <div class="content-block content-first align-center">
     <h2 class="content-title">Template</h2>
     <h3 class="content-subtitle">HTML template or plain text</h3>
-    <div class="js-mytooltip type-inline-block style-block style-block-three" data-mytooltip-class="align-center"
-         data-mytooltip-direction="right" data-mytooltip-text="plain text">hover to me
+    <div class="js-mytooltip type-inline-block style-block style-block-three" data-mytooltip-custom-class="align-center"
+         data-mytooltip-direction="right" data-mytooltip-template="plain text">hover to me
     </div>
     <br>
 
@@ -324,52 +324,52 @@
   <div class="content-block content-second align-center">
     <h2 class="content-title">Animate</h2>
     <h3 class="content-subtitle">Animation options</h3>
-    <div class="js-mytooltip type-inline-block style-block style-block-four"  data-mytooltip-class="align-center"
-         data-mytooltip-text="Slow animate duration - 200mc">Animate duration default
+    <div class="js-mytooltip type-inline-block style-block style-block-four"  data-mytooltip-custom-class="align-center"
+         data-mytooltip-template="Slow animate duration - 200mc">Animate duration default
     </div>
     <br>
     <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-animate-duration="100"
-         data-mytooltip-class="align-center" data-mytooltip-direction="left"
-         data-mytooltip-text="Slow animate duration - 100mc">Fast animate duration
+         data-mytooltip-custom-class="align-center" data-mytooltip-direction="left"
+         data-mytooltip-template="Slow animate duration - 100mc">Fast animate duration
     </div>
     <br>
     <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-animate-duration="400"
-         data-mytooltip-class="align-center" data-mytooltip-text="Slow animate duration - 400mc">Slow animate duration
+         data-mytooltip-custom-class="align-center" data-mytooltip-template="Slow animate duration - 400mc">Slow animate duration
     </div>
     <br>
-    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-class="align-center"
-         data-mytooltip-direction="left" data-mytooltip-text="Animate offset 15px">Animate offset default
+    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-custom-class="align-center"
+         data-mytooltip-direction="left" data-mytooltip-template="Animate offset 15px">Animate offset default
     </div>
     <br>
-    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-class="align-center"
+    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-custom-class="align-center"
          data-mytooltip-direction="right" data-mytooltip-animate-offset-px="40"
-         data-mytooltip-text="Animate offset 40px">Animate offset custom
+         data-mytooltip-template="Animate offset 40px">Animate offset custom
     </div>
     <br>
-    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-class="align-center"
+    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-custom-class="align-center"
          data-mytooltip-direction="bottom" data-mytooltip-animate-offset-px="0"
-         data-mytooltip-text="Animate offset 0px">Animate offset custom two
+         data-mytooltip-template="Animate offset 0px">Animate offset custom two
     </div>
   </div>
 
   <div class="content-block content-first align-center">
     <h2 class="content-title">Action</h2>
     <h3 class="content-subtitle">Event support</h3>
-    <div class="js-mytooltip type-inline-block style-block style-block-one" data-mytooltip-class="align-center"
-         data-mytooltip-direction="right" data-mytooltip-text="Event default - hover">Hover me
+    <div class="js-mytooltip type-inline-block style-block style-block-one" data-mytooltip-custom-class="align-center"
+         data-mytooltip-direction="right" data-mytooltip-template="Event default - hover">Hover me
     </div>
     <br>
-    <div class="js-mytooltip type-inline-block style-block style-block-one" data-mytooltip-class="align-center"
-         data-mytooltip-direction="right" data-mytooltip-action="click" data-mytooltip-text="Event click">Click me
+    <div class="js-mytooltip type-inline-block style-block style-block-one" data-mytooltip-custom-class="align-center"
+         data-mytooltip-direction="right" data-mytooltip-action="click" data-mytooltip-template="Event click">Click me
     </div>
     <br>
     <h3 style="margin-bottom: 10px;" class="content-subtitle">Focus:</h3>
     <div class="form">
-      <input type="text" class="input js-mytooltip" data-mytooltip-text="Enter your first name" data-mytooltip-theme="danger"
+      <input type="text" class="input js-mytooltip" data-mytooltip-template="Enter your first name" data-mytooltip-theme="danger"
              data-mytooltip-action="focus" data-mytooltip-direction="right" placeholder="First name">
-      <input type="text" class="input js-mytooltip" data-mytooltip-text="Enter your last name" data-mytooltip-theme="danger"
+      <input type="text" class="input js-mytooltip" data-mytooltip-template="Enter your last name" data-mytooltip-theme="danger"
              data-mytooltip-action="focus" data-mytooltip-direction="right" placeholder="Last name">
-      <input type="email" class="input js-mytooltip" data-mytooltip-text="Enter your valid Email" data-mytooltip-theme="danger"
+      <input type="email" class="input js-mytooltip" data-mytooltip-template="Enter your valid Email" data-mytooltip-theme="danger"
              data-mytooltip-action="focus" data-mytooltip-direction="right" placeholder="Email">
     </div>
   </div>
@@ -377,16 +377,16 @@
   <div class="content-block content-second align-center">
     <h2 class="content-title">Events</h2>
     <h3 class="content-subtitle">Custom events</h3>
-    <div class="js-mytooltip type-inline-block style-block style-block-two custom-event" data-mytooltip-class="align-center"
-          data-mytooltip-text="Event log in console">Open console and hover me
+    <div class="js-mytooltip type-inline-block style-block style-block-two custom-event" data-mytooltip-custom-class="align-center"
+          data-mytooltip-template="Event log in console">Open console and hover me
     </div>
   </div>
 
   <div class="content-block content-first align-center">
     <h2 class="content-title">Methods</h2>
     <h3 class="content-subtitle">Public methods</h3>
-    <div class="js-mytooltip destroy-element type-inline-block style-block style-block-three" data-mytooltip-class="align-center"
-         data-mytooltip-text="click to destroy to delete element from myTooltip">Hover me
+    <div class="js-mytooltip destroy-element type-inline-block style-block style-block-three" data-mytooltip-custom-class="align-center"
+         data-mytooltip-template="click to destroy to delete element from myTooltip">Hover me
     </div>
     <br>
     <a class="destroy-active" href="#">Call destroy</a>
@@ -397,36 +397,36 @@
   <div class="content-block content-second align-center">
     <h2 class="content-title">Themes</h2>
     <h3 class="content-subtitle">Ready-to-use</h3>
-    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-class="align-center"
-         data-mytooltip-direction="right" data-mytooltip-text="Theme default">Default
+    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-custom-class="align-center"
+         data-mytooltip-direction="right" data-mytooltip-template="Theme default">Default
     </div>
     <br>
-    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-class="align-center"
-         data-mytooltip-direction="left" data-mytooltip-theme="danger" data-mytooltip-text="Theme danger">Danger
+    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-custom-class="align-center"
+         data-mytooltip-direction="left" data-mytooltip-theme="danger" data-mytooltip-template="Theme danger">Danger
     </div>
     <br>
-    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-class="align-center"
-         data-mytooltip-direction="right" data-mytooltip-theme="warning" data-mytooltip-text="Theme warning">Warning
+    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-custom-class="align-center"
+         data-mytooltip-direction="right" data-mytooltip-theme="warning" data-mytooltip-template="Theme warning">Warning
     </div>
     <br>
-    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-class="align-center"
-         data-mytooltip-direction="left" data-mytooltip-theme="info" data-mytooltip-text="Theme info">Info
+    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-custom-class="align-center"
+         data-mytooltip-direction="left" data-mytooltip-theme="info" data-mytooltip-template="Theme info">Info
     </div>
     <br>
-    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-class="align-center"
-         data-mytooltip-direction="right" data-mytooltip-theme="success" data-mytooltip-text="Theme success">Success
+    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-custom-class="align-center"
+         data-mytooltip-direction="right" data-mytooltip-theme="success" data-mytooltip-template="Theme success">Success
     </div>
     <br>
-    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-class="align-center"
-         data-mytooltip-direction="left" data-mytooltip-theme="light" data-mytooltip-text="Theme light">Light
+    <div class="js-mytooltip type-inline-block style-block style-block-four" data-mytooltip-custom-class="align-center"
+         data-mytooltip-direction="left" data-mytooltip-theme="light" data-mytooltip-template="Theme light">Light
     </div>
   </div>
 
   <div class="content-block content-first align-center">
     <h2 class="content-title">Custom theme</h2>
     <h3 class="content-subtitle">Your custom style</h3>
-    <div class="js-mytooltip type-inline-block style-block style-block-one" data-mytooltip-class="my-tooltip align-center"
-         data-mytooltip-text="Add class custom style">My tooltip
+    <div class="js-mytooltip type-inline-block style-block style-block-one" data-mytooltip-custom-class="my-tooltip align-center"
+         data-mytooltip-template="Add class custom style">My tooltip
     </div>
   </div>
 
@@ -434,18 +434,18 @@
     <h2 class="content-title">Others</h2>
     <h3 class="content-subtitle">Other examples</h3>
     <div style="border-radius: 100px" class="js-mytooltip type-inline-block style-block style-block-two"
-         data-mytooltip-class="align-center"
-         data-mytooltip-direction="right" data-mytooltip-cursor-help="true" data-mytooltip-text="Cursor help">?
+         data-mytooltip-custom-class="align-center"
+         data-mytooltip-direction="right" data-mytooltip-cursor-help="true" data-mytooltip-template="Cursor help">?
     </div>
     <br>
     <div style="border-radius: 100px" class="js-mytooltip type-inline-block style-block style-block-two"
-         data-mytooltip-class="align-center" data-mytooltip-hover="false"
-         data-mytooltip-direction="left" data-mytooltip-text="Try it hover">Hover me
+         data-mytooltip-custom-class="align-center" data-mytooltip-hover-tooltip="false"
+         data-mytooltip-direction="left" data-mytooltip-template="Try it hover">Hover me
     </div>
     <br>
     <div style="border-radius: 100px" class="js-mytooltip type-inline-block style-block style-block-two"
-         data-mytooltip-class="align-center"
-         data-mytooltip-direction="right" data-mytooltip-disposable="true" data-mytooltip-text="Disposable tip">Disposable
+         data-mytooltip-custom-class="align-center"
+         data-mytooltip-direction="right" data-mytooltip-disposable="true" data-mytooltip-template="Disposable tip">Disposable
     </div>
   </div>
 </div>
