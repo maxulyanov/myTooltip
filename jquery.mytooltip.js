@@ -54,8 +54,8 @@
   var methods = {
 
     /**
-     *
-     * @param options
+     * Main method
+     * @param options - object user options
      */
     init: function (options) {
 
@@ -87,8 +87,8 @@
     },
 
     /**
-     *
-     * @param data
+     * Create current tooltip
+     * @param data - tooltipsStorage[id]
      */
     create: function (data) {
 
@@ -125,7 +125,7 @@
     },
 
     /**
-     *
+     * Reset last ID
      */
     resetLastShow: function () {
 
@@ -134,10 +134,10 @@
     },
 
     /**
-     *
-     * @param tooltip
-     * @param data
-     * @returns {boolean}
+     * Show current tooltip
+     * @param tooltip - DOM object tooltip
+     * @param data - tooltipsStorage[id]
+     * @returns {boolean} - default case - return false and call error message
      */
     show: function (tooltip, data) {
 
@@ -176,7 +176,6 @@
           return false;
       }
 
-
       setTimeout(function() {
         methods.callEvents(data.current, eventsNames.showComplete);
       }, options.animateDuration);
@@ -184,9 +183,9 @@
     },
 
     /**
-     *
-     * @param tooltip
-     * @param options
+     * Hide current tooltip
+     * @param tooltip - DOM object tooltip
+     * @param options - current options tooltipsStorage[id].options
      */
     hide: function (tooltip, options) {
 
@@ -214,9 +213,9 @@
 
     /**
      *
-     * @param tooltip
-     * @param base
-     * @param id
+     * @param tooltip - DOM object tooltip
+     * @param base - base DOM element
+     * @param id - current tooltip ID
      */
     remove: function (tooltip, base, id) {
 
@@ -240,97 +239,110 @@
     },
 
     /**
-     *
-     * @param data
-     * @param tooltip
-     * @returns {boolean}
+     * Set position current tooltip
+     * @param data - tooltipsStorage[id]
+     * @param tooltip - DOM object tooltip
+     * @returns {boolean} - default case - return false and call error message
      */
     setPosition: function (data, tooltip) {
 
       var current = $(data.current);
       var position = current.offset();
       var options = data.options;
+      var image = tooltip.find('img');
+      var animateOffsetPx = options.animateOffsetPx ? parseInt(options.animateOffsetPx) : 0;
+      var backing = tooltip.find('.mytooltip-backing');
+      var sizeBacking = 0;
       var sizeElement = {
         height: current.outerHeight(),
         width: current.outerWidth()
       };
-      var sizeTooltip = {
-        height: tooltip.outerHeight(),
-        width: tooltip.outerWidth()
-      };
+      var sizeTooltip = {};
 
-      var animateOffsetPx = options.animateOffsetPx ? parseInt(options.animateOffsetPx) : 0;
-
-      var backing = tooltip.find('.mytooltip-backing');
-      var sizeBacking = 0;
-
-      switch (options.direction) {
-
-        case 'top':
-          tooltip.css({
-            'left': position.left + (sizeElement.width / 2) - (sizeTooltip.width / 2),
-            'top': position.top - sizeTooltip.height - options.offset - animateOffsetPx
-          });
-          sizeBacking = position.top - parseInt(tooltip.css('top')) - sizeTooltip.height - animateOffsetPx;
-          backing.css({
-            'height': sizeBacking,
-            'bottom': -sizeBacking,
-            'left': 0
-          });
-          break;
-
-        case 'right':
-          tooltip.css({
-            'left': position.left + sizeElement.width + options.offset + animateOffsetPx,
-            'top': position.top - (sizeTooltip.height / 2) + (sizeElement.height / 2)
-          });
-          sizeBacking = parseInt(tooltip.css('left')) - position.left - sizeElement.width - animateOffsetPx;
-          backing.css({
-            'height': sizeTooltip.height,
-            'width': sizeBacking,
-            'top': 0,
-            'left': -sizeBacking
-          });
-          break;
-
-        case 'bottom':
-          tooltip.css({
-            'left': position.left + (sizeElement.width / 2) - (sizeTooltip.width / 2),
-            'top': position.top + sizeElement.height + options.offset + animateOffsetPx
-          });
-          sizeBacking = parseInt(tooltip.css('top')) - position.top - sizeElement.height - animateOffsetPx;
-          backing.css({
-            'height': sizeBacking,
-            'top': -sizeBacking,
-            'left': 0
-          });
-          break;
-
-        case 'left':
-          tooltip.css({
-            'left': position.left - sizeTooltip.width - options.offset - animateOffsetPx,
-            'top': position.top - (sizeTooltip.height / 2) + (sizeElement.height / 2)
-          });
-          sizeBacking = position.left - parseInt(tooltip.css('left')) - sizeTooltip.width - animateOffsetPx;
-          backing.css({
-            'height': sizeTooltip.height,
-            'width': sizeBacking,
-            'top': 0,
-            'right': -sizeBacking
-          });
-          break;
-
-        default:
-          methods.error('Direction: ' + options.direction + ' not found!');
-          return false;
+      if (image.length > 0) {
+        image.load(function () {
+          setSizeTooltip();
+        });
+      }
+      else {
+        setSizeTooltip();
       }
 
+      function setSizeTooltip() {
+        sizeTooltip.height = tooltip.outerHeight();
+        sizeTooltip.width = tooltip.outerWidth();
+        callSwith();
+      }
+
+      function callSwith() {
+        switch (options.direction) {
+
+          case 'top':
+            tooltip.css({
+              'left': position.left + (sizeElement.width / 2) - (sizeTooltip.width / 2),
+              'top': position.top - sizeTooltip.height - options.offset - animateOffsetPx
+            });
+            sizeBacking = position.top - parseInt(tooltip.css('top')) - sizeTooltip.height - animateOffsetPx;
+            backing.css({
+              'height': sizeBacking,
+              'bottom': -sizeBacking,
+              'left': 0
+            });
+            break;
+
+          case 'right':
+            tooltip.css({
+              'left': position.left + sizeElement.width + options.offset + animateOffsetPx,
+              'top': position.top - (sizeTooltip.height / 2) + (sizeElement.height / 2)
+            });
+            sizeBacking = parseInt(tooltip.css('left')) - position.left - sizeElement.width - animateOffsetPx;
+            backing.css({
+              'height': sizeTooltip.height,
+              'width': sizeBacking,
+              'top': 0,
+              'left': -sizeBacking
+            });
+            break;
+
+          case 'bottom':
+            tooltip.css({
+              'left': position.left + (sizeElement.width / 2) - (sizeTooltip.width / 2),
+              'top': position.top + sizeElement.height + options.offset + animateOffsetPx
+            });
+            sizeBacking = parseInt(tooltip.css('top')) - position.top - sizeElement.height - animateOffsetPx;
+            backing.css({
+              'height': sizeBacking,
+              'top': -sizeBacking,
+              'left': 0
+            });
+            break;
+
+          case 'left':
+            tooltip.css({
+              'left': position.left - sizeTooltip.width - options.offset - animateOffsetPx,
+              'top': position.top - (sizeTooltip.height / 2) + (sizeElement.height / 2)
+            });
+            sizeBacking = position.left - parseInt(tooltip.css('left')) - sizeTooltip.width - animateOffsetPx;
+            backing.css({
+              'height': sizeTooltip.height,
+              'width': sizeBacking,
+              'top': 0,
+              'right': -sizeBacking
+            });
+            break;
+
+          default:
+            methods.error('Direction: ' + options.direction + ' not found!');
+            return false;
+        }
+
+      }
     },
 
     /**
      *
-     * @param data
-     * @returns {boolean}
+     * @param data - tooltipsStorage[id]
+     * @returns {boolean} - default case - return false and call error message
      */
     setEvents: function (data) {
 
@@ -383,9 +395,9 @@
     },
 
     /**
-     *
-     * @param current
-     * @returns {{}}
+     * Get options data-* attributes
+     * @param current - current DOM element
+     * @returns {{}} - object options data-* attributes
      */
     getAttrOptions: function (current) {
 
@@ -438,9 +450,9 @@
 
 
     /**
-     *
-     * @param current
-     * @param event
+     * Call plugin events
+     * @param current - DOM element
+     * @param event - Event name property eventsNames
      */
     callEvents: function (current, event) {
 
@@ -449,9 +461,9 @@
     },
 
     /**
-     *
-     * @param id
-     * @returns {boolean}
+     * Check property in tooltipsStorage
+     * @param id - ID
+     * @returns {boolean} - false or true
      */
     isEmptyObjectProperty: function(id) {
 
@@ -460,9 +472,8 @@
     },
 
     /**
-     *
-     * @param args
-     * @param selector
+     * Reinit plugin by dinamic elements
+     * @param params - object options
      */
     update: function(params) {
 
@@ -472,6 +483,7 @@
 
     /**
      * Delete item from the plugin
+     * @param params - object options
      */
     destroy: function (params) {
 
