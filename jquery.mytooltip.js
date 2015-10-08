@@ -119,8 +119,7 @@
 
       methods.hide(tooltip, options);
       $('body').append(tooltip);
-      methods.setPosition(data, tooltip);
-      methods.show(tooltip, data);
+      methods.setPosition(tooltip, data);
 
     },
 
@@ -148,6 +147,7 @@
         queue: false,
         duration: duration
       });
+
 
       // Variants
       switch (options.direction) {
@@ -244,7 +244,7 @@
      * @param tooltip - DOM object tooltip
      * @returns {boolean} - default case - return false and call error message
      */
-    setPosition: function (data, tooltip) {
+    setPosition: function (tooltip, data) {
 
       var current = $(data.current);
       var position = current.offset();
@@ -335,6 +335,8 @@
             methods.error('Direction: ' + options.direction + ' not found!');
             return false;
         }
+
+        methods.show(tooltip, data);
 
       }
     },
