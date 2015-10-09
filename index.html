@@ -25,6 +25,10 @@
         '<a href="https://en.wikipedia.org/wiki/Mars" target="_blank">read more</a><p>'
       })
 
+      $('.js-p-title').find('a').myTooltip({
+        'fromTitle': true
+      });
+
       // custom-events
       $('.custom-event').on('show-before', function() {
         console.log('show-before!')
@@ -447,6 +451,14 @@
          data-mytooltip-custom-class="align-center"
          data-mytooltip-direction="right" data-mytooltip-disposable="true" data-mytooltip-template="Disposable tip">Disposable
     </div>
+    <br>
+    <p class="js-p-title"><span class="style-block style-block-two">Attribute title custom <strong style="font-size: 18px;">&raquo;</strong></span> Banksia menziesii grows primarily in deep sandy soils of the <a href="/wiki/Swan_Coastal_Plain"
+                                                                              title="Swan Coastal Plain">Swan Coastal
+      Plain</a> and <a href="/wiki/Geraldton_Sandplains" title="Geraldton Sandplains">Geraldton Sandplains</a>,
+      extending from <a href="/wiki/Waroona,_Western_Australia" title="Waroona, Western Australia">Waroona</a> in the
+      south to <a href="/wiki/Kalbarri,_Western_Australia" title="Kalbarri, Western Australia">Kalbarri</a> in the
+      north.</p>
+
   </div>
 </div>
 

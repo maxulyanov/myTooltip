@@ -70,7 +70,12 @@
       var userOptions = $.extend(true, {}, options, methods.getAttrOptions(self));
       var currentOptions = $.extend(true, {}, methods.getDefaultOptions(), userOptions);
 
-      if(currentOptions.template === null) return;
+      if(methods.stringToBoolean(currentOptions.fromTitle)) {
+        var selfTitle = self.attr('title');
+        currentOptions.template = selfTitle ? selfTitle : currentOptions.template;
+      }
+
+      if(currentOptions.template == null) return;
 
       tooltipsStorage[id] = {
         'id': id,
@@ -129,6 +134,18 @@
     resetLastShow: function () {
 
       tooltipLastShowId = false;
+
+    },
+
+    /**
+     * String "true" and "false" to Boolean type
+      * @param string
+     * @returns {boolean}
+     */
+    stringToBoolean: function(string) {
+
+      if(typeof string === 'boolean') return string;
+      return string === 'true';
 
     },
 
@@ -442,6 +459,7 @@
         'action'          : 'hover',
         'theme'           : 'default',
         'disposable'      : false,
+        'fromTitle'       : false,
         'cursorHelp'      : false,
         'hoverTooltip'    : true,
         'animateOffsetPx' : 15,
