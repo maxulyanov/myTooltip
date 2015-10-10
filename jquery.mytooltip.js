@@ -5,7 +5,7 @@
 
 ;(function ($) {
 
-  'use struct';
+  'use strict';
 
   var tooltipsStorage = {};
   var tooltipsSettingsStorage = {};
@@ -13,11 +13,11 @@
   var tooltipLastShowId = false;
 
   var tooltipClasses = {
-    'base' : 'system-mytooltip--base',
-    'item' : 'system-mytooltip--item',
-    'hover': 'system-mytooltip--hover',
+    'base'   : 'system-mytooltip--base',
+    'item'   : 'system-mytooltip--item',
+    'hover'  : 'system-mytooltip--hover',
     'backing': 'system-mytooltip--backing',
-    'help' : 'mytooltip--cursor-help'
+    'help'   : 'mytooltip--cursor-help'
   };
 
   var directionClasses = {
@@ -28,9 +28,9 @@
   };
 
   var eventsNames = {
-    'showBefore': 'show-before',
+    'showBefore'  : 'show-before',
     'showComplete': 'show-complete',
-    'hideBefore': 'hide-before',
+    'hideBefore'  : 'hide-before',
     'hideComplete': 'hide-complete'
   };
 
@@ -392,14 +392,14 @@
       switch (action) {
         case 'click':
           current.on(action, function (event) {
-            if (!methods.isEmptyObjectProperty(data.id)) return;
+            if (!methods.isEmptyObjectProperty(data.id)) break;
             event.preventDefault();
             methods.create(data);
           });
           break;
         case 'hover':
         case 'focus':
-          if (!methods.isEmptyObjectProperty(data.id)) return;
+          if (!methods.isEmptyObjectProperty(data.id)) break;
           var actionGet;
           var actionLose;
           if (action === 'hover') {
@@ -509,6 +509,24 @@
     isEmptyObjectProperty: function(id) {
 
       return tooltipsStorage[id] !== undefined;
+
+    },
+
+    /**
+     *
+     * @param params
+     */
+    call: function(params) {
+
+      var current = $(params.selector);
+      var id = current.data('mytooltip-id');
+
+      if(id >= 0) {
+        methods.create(tooltipsStorage[id]);
+      }
+      else {
+        methods.error('Method Call: ID not found!');
+      }
 
     },
 
