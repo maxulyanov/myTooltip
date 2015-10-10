@@ -165,7 +165,6 @@
         duration: duration
       });
 
-
       // Variants
       switch (options.direction) {
         case 'top':
@@ -195,7 +194,28 @@
 
       setTimeout(function() {
         methods.callEvents(data.current, eventsNames.showComplete);
+        if(options.hideTime) {
+          methods.hideTimer(tooltip, options);
+        }
       }, options.animateDuration);
+
+    },
+
+    /**
+     * Hide current tooltip timer
+     * @param tooltip - DOM object tooltip
+     * @param options - current options tooltipsStorage[id].options
+     */
+    hideTimer: function(tooltip, options) {
+
+      var delay = parseInt(options.hideTime);
+      if(!delay || delay < 0) delay = 0;
+
+      setTimeout(function() {
+        if(tooltip.is(':visible')) {
+          methods.hide(tooltip, options);
+        }
+      }, delay);
 
     },
 
@@ -223,7 +243,7 @@
       methods.callEvents(base, eventsNames.hideBefore);
 
       item.stop().fadeOut(duration, function () {
-        methods.remove(tooltip, base, id);
+        methods.remove(tooltip, id, base);
       });
 
     },
@@ -231,10 +251,10 @@
     /**
      *
      * @param tooltip - DOM object tooltip
-     * @param base - base DOM element
      * @param id - current tooltip ID
+     * @param base - base DOM element
      */
-    remove: function (tooltip, base, id) {
+    remove: function (tooltip, id, base) {
 
       if (tooltip) {
         $('.' + tooltipClasses.item).each(function () {
@@ -461,6 +481,7 @@
         'disposable'      : false,
         'fromTitle'       : false,
         'cursorHelp'      : false,
+        'hideTime'        : false,
         'hoverTooltip'    : true,
         'animateOffsetPx' : 15,
         'animateDuration' : 200
@@ -550,7 +571,6 @@
     }
 
   };
-
 
   /**
    * Add new function to jQuery.fn
