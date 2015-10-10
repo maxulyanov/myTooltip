@@ -418,7 +418,7 @@
           current.on(actionLose, function (event) {
             methods.resetLastShow();
 
-            if (!options.hoverTooltip || options.hoverTooltip === 'false' ) {
+            if (!options.hoverTooltip || !methods.stringToBoolean(options.hoverTooltip) ) {
               methods.hide();
             }
             else if (!$(event.relatedTarget).is('.' + tooltipClasses.item + ',' + '.' + tooltipClasses.backing)) {
