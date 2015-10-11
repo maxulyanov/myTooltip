@@ -392,14 +392,14 @@
       switch (action) {
         case 'click':
           current.on(action, function (event) {
-            if (!methods.isEmptyObjectProperty(data.id)) break;
+            if (!methods.isEmptyObjectProperty(data.id)) return;
             event.preventDefault();
             methods.create(data);
           });
           break;
         case 'hover':
         case 'focus':
-          if (!methods.isEmptyObjectProperty(data.id)) break;
+          if (!methods.isEmptyObjectProperty(data.id)) return;
           var actionGet;
           var actionLose;
           if (action === 'hover') {

@@ -50,11 +50,11 @@ $(document).ready(function() {
   // call
   setTimeout(function() {
     $('.download-header').myTooltip('call');
-  }, 500);
+  }, 300);
 
   $('.add-element').on('click', function(event) {
     event.preventDefault();
-    $(this).after('<br><div class="js-mytooltip type-inline-block style-block style-block-three"' +
+    $(this).after('<br><div style="margin: 10px 0;" class="js-mytooltip type-inline-block style-block style-block-three"' +
         ' data-mytooltip-animate-duration="150" data-mytooltip-direction="left" data-mytooltip-custom-class="align-center"' +
         ' data-mytooltip-template="Wow!<br> This dinamic element!">New element</div>');
 
