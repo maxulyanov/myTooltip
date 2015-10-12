@@ -140,7 +140,7 @@ body {
   padding: 20px 0;
 }
 .content-block-inner {
-  width: 640px;
+  width: 645px;
   margin: 0 auto;
 }
 
@@ -206,6 +206,10 @@ body {
   margin-bottom: 15px;
   border: 1px solid #E6E6E6;
   border-radius: 3px;
+}
+
+.hidden {
+  display: none;
 }
 
 /**/

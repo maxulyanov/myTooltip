@@ -44,7 +44,7 @@
       <br>
       <br>
       <div class="js-mytooltip type-inline-block style-block style-block-one" data-mytooltip-custom-class="align-center"
-           data-mytooltip-direction="right" data-mytooltip-template="Direction right">Right
+           data-mytooltip-direction="right" data-mytooltip-template="{{ .tooltip-content-dom }}">Right
       </div>
       <br>
       <code>data-mytooltip-direction=<span class="code-string">"right"</span></code> or
@@ -412,6 +412,12 @@
   </div>
 
 
+</div>
+
+<div class="hidden">
+  <div class="tooltip-content-dom">
+    <span>Direction right</span>
+  </div>
 </div>
 
 <div class="footer align-center">

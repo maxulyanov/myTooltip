@@ -51,6 +51,15 @@
     }
   });
 
+  // Add support trim method
+  if (!String.prototype.trim) {
+    (function() {
+      String.prototype.trim = function() {
+        return this.replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+      };
+    })();
+  }
+
   var methods = {
 
     /**
@@ -77,6 +86,11 @@
 
       if(currentOptions.template == null) return;
 
+      if (typeof currentOptions.template === 'string'
+          && currentOptions.template[0] === '{' && currentOptions.template[1] === '{') {
+        currentOptions.template = methods.getHtmlTemplate(currentOptions.template);
+      }
+
       tooltipsStorage[id] = {
         'id': id,
         'current': self,
@@ -98,7 +112,7 @@
     create: function (data) {
 
       var id = data.id;
-      var current = $(data.current)
+      var current = $(data.current);
       if (!methods.isEmptyObjectProperty(id) || current.hasClass(data.options.ignoreClass)) return;
 
       if (tooltipLastShowId === id) {
@@ -126,6 +140,24 @@
       methods.hide(tooltip, options);
       $('body').append(tooltip);
       methods.setPosition(tooltip, data);
+
+    },
+
+    /**
+     * Get HTML template
+     * @param string - {{ selector }}
+     * @returns {*} - HTML template or null
+     */
+    getHtmlTemplate: function(string) {
+
+      var selector = string.slice(2).slice(0, -2).trim();
+      if($(selector).length) {
+        return $(selector).html()
+      }
+      else {
+        methods.error('Element: ' + selector + ' not found!');
+        return null;
+      }
 
     },
 
