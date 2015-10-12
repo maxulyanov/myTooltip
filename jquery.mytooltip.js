@@ -98,7 +98,8 @@
     create: function (data) {
 
       var id = data.id;
-      if (!methods.isEmptyObjectProperty(id)) return;
+      var current = $(data.current)
+      if (!methods.isEmptyObjectProperty(id) || current.hasClass(data.options.ignoreClass)) return;
 
       if (tooltipLastShowId === id) {
         methods.hide();
@@ -478,6 +479,7 @@
         'template'        : null,
         'action'          : 'hover',
         'theme'           : 'default',
+        'ignoreClass'     : 'js-mytooltip-ignore',
         'disposable'      : false,
         'fromTitle'       : false,
         'cursorHelp'      : false,
