@@ -39,9 +39,7 @@
    * Set global events
    */
   $(document).on('mouseleave', '.' + tooltipClasses.hover, function (event) {
-    if(!$(event.target).hasClass(tooltipClasses.backing)) {
-      methods.hide();
-    }
+    methods.hide();
   });
 
   $(document).on('click', function (event) {
