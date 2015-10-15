@@ -81,13 +81,13 @@
         var selfTitle = self.attr('title');
         currentOptions.template = selfTitle ? selfTitle : currentOptions.template;
       }
+      else {
+        var html = methods.getHtmlTemplate(currentOptions.template);
+        if(html !== false) currentOptions.template = html;
+      }
 
       if(currentOptions.template == null) return;
 
-      if (typeof currentOptions.template === 'string'
-          && currentOptions.template[0] === '{' && currentOptions.template[1] === '{') {
-        currentOptions.template = methods.getHtmlTemplate(currentOptions.template);
-      }
 
       tooltipsStorage[id] = {
         'id': id,
@@ -142,21 +142,23 @@
     },
 
     /**
-     * Get HTML template
-     * @param string - {{ selector }}
-     * @returns {*} - HTML template or null
+     * Attention
+     * @param string - selector
+     * @returns {*} - HTML template or string
      */
     getHtmlTemplate: function(string) {
 
-      var selector = string.slice(2).slice(0, -2).trim();
-      if($(selector).length) {
-        return $(selector).html()
+      try {
+        var selector = string.trim();
+        if ($(selector).length && !~string.indexOf('<')) {
+          return $(selector).html();
+        }
+        return false;
       }
-      else {
-        methods.error('Element: ' + selector + ' not found!');
-        return null;
+      catch (err) {
+        methods.error('Attention! ' + err);
+        return false;
       }
-
     },
 
     /**
