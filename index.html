@@ -99,11 +99,12 @@
       <h2 class="content-title">Template</h2>
       <h3 class="content-subtitle">Plain text or great HTML template</h3>
       <div class="js-mytooltip type-inline-block style-block style-block-three" data-mytooltip-custom-class="align-center"
-           data-mytooltip-direction="right" data-mytooltip-template="plain text">hover to me
+           data-mytooltip-direction="right" data-mytooltip-template="<strong>plain text</strong>">hover to me
       </div>
       <br>
-      <code>data-mytooltip-template<span class="code-string">"plain text"</span></code> or
-      <code>template:<span class="code-string">'plain text'</span></code>
+      <code>data-mytooltip-template<span class="code-string">"&lt;strong>plain text&lt;/strong>"</span></code> or
+      <code>template:<span class="code-string">'plain text'</span></code> <br>
+      or add selector a string <code style="margin-top: 10px;"><span class="code-string">'.content-class'</span></code>
       <br>
       <br>
       <p><strong>Hover link: "Mars"</strong></p>
@@ -391,7 +392,7 @@
            data-mytooltip-custom-class="align-center" data-mytooltip-template="No show">No show
       </div>
       <br>
-      <div style="margin-bottom: 5px;">Add class <code><span class="code-string">"js-mytooltip-ignore"</span></code> to DOM element or set user class:</div>
+      <div style="margin-bottom: 10px;">Add class <code><span class="code-string">"js-mytooltip-ignore"</span></code> to DOM element or set user class:</div>
       <code>data-mytooltip-ignore-class=<span class="code-string">'my-ignore-class'</span></code> or
       <code>ignoreClass:<span class="code-string">"my-ignore-class"</span></code>
       <br>
