@@ -142,7 +142,7 @@
     },
 
     /**
-     * Attention
+     * getHtmlTemplate
      * @param string - selector
      * @returns {*} - HTML template or string
      */
