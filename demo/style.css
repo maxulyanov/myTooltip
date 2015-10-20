@@ -118,7 +118,11 @@ body {
 .logo:hover span {
   color: #F16F51;
 }
-
+.iframe-wrapper {
+  float: left;
+  margin-top: 12px;
+  margin-left: 20px;
+}
 .header-info {
   padding: 30px 0;
   background: #25272F;
