@@ -208,6 +208,31 @@ body {
   border-radius: 3px;
 }
 
+.mytooltip.dropdown-menu-custom {
+  padding: 5px;
+}
+.example-nav ul,
+.dropdown-menu{
+  overflow: hidden;
+  list-style: none;
+}
+.example-nav li {
+  float: left;
+}
+.example-nav-item {
+  display: block;
+  padding: 7px;
+  background: #41A5E0;
+  color: #FFF;
+}
+.example-nav-item:hover {
+  background: #3A9BD4;
+  color: #222;
+}
+.dropdown-menu .example-nav-item {
+  border-bottom: 1px solid #3A9BD4;
+}
+
 .hidden {
   display: none;
 }
