@@ -86,7 +86,7 @@
         if(html !== false) currentOptions.template = html;
       }
 
-      if(currentOptions.template == null) return;
+      if(currentOptions.template == '') return;
 
 
       tooltipsStorage[id] = {
@@ -508,7 +508,7 @@
         'direction'       : 'top',
         'offset'          : 10,
         'customClass'     : '',
-        'template'        : null,
+        'template'        : '',
         'action'          : 'hover',
         'theme'           : 'default',
         'ignoreClass'     : 'js-mytooltip-ignore',
