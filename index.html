@@ -113,7 +113,7 @@
 
   <div class="content-block content-first">
     <div class="content-block-inner">
-      <h2 class="content-title">Template</h2>
+      <h2 class="content-title">Templates</h2>
       <h3 class="content-subtitle">Plain text or great HTML template</h3>
       <div class="js-mytooltip type-inline-block style-block style-block-three"
            data-mytooltip-custom-class="align-center"
@@ -132,6 +132,17 @@
         from boiling off in the
         thin atmosphere of <a class="js-mytooltip-template" data-mytooltip-direction="right" href="#">Mars</a>,<br> the
         researchers said.</p>
+      <div class="js-mytooltip type-inline-block style-block style-block-three"
+           data-mytooltip-custom-class="align-center"
+           data-mytooltip-direction="right"
+           data-mytooltip-dinamic-template="true"
+           data-mytooltip-template="<div class='wrap'><a class='add-to-basket' href='#'>Add to basket</a><span class='count'>17</span></div>">dinamic template
+      </div>
+      <br>
+      <code>data-mytooltip-dinamic-template=<span class="code-boolean">true</span></code> or
+      <code>dinamicTemplate:<span class="code-boolean">true</span></code>
+      <br>
+      <br>
     </div>
   </div>
 
@@ -318,6 +329,16 @@
       </div>
       <br>
       <a class="destroy-element" href="#">Destroy this hover element</a>
+      <br>
+      <br>
+      <h3 class="content-subtitle align-left">updateTemplate:</h3>
+      <code>
+        $(domElement).myTooltip(<span class="code-string">'updateTemplate'</span>, <span class="code-string">'template'</span>);
+      </code>
+      <br>
+      <p style="margin-bottom: 5px;"></p>
+      need to install: <br> <code>data-mytooltip-dinamic-template=<span class="code-boolean">true</span></code> or
+      <code>dinamicTemplate:<span class="code-boolean">true</span></code>
       <br>
       <br>
     </div>

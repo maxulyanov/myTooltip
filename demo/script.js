@@ -62,5 +62,20 @@ $(document).ready(function() {
 
   });
 
+  // dinamic template
+  $(document).on('click', '.add-to-basket', function(event) {
+    event.preventDefault();
+
+    // template
+    var countElement = $(this).next('.count');
+    var countNumber = countElement.text();
+    countElement.text(++countNumber);
+
+    // tooltip
+    var tooltip = $('.js-mytooltip[data-mytooltip-id="' + $(this).parents('div').last().data('mytooltip-id') + '"]');
+    tooltip.myTooltip('updateTemplate', $(this).closest('.wrap').clone().wrap('<div>').parent().html());
+
+  });
+
 
 });
