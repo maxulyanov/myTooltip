@@ -65,6 +65,12 @@ Options list:
       <td><code>'default'</code></td>
     </tr>
     <tr>
+      <td>dinamicTemplate</td>
+      <td>Ability to change template</td>
+      <td><code>Boolean</code></td>
+      <td><code>false</code></td>
+    </tr>
+    <tr>
       <td>ignoreClass</td>
       <td>Add class to element to ignore call</td>
       <td><code>String</code></td>
@@ -201,7 +207,12 @@ Events list:<br>
     $('.js-mytooltip').myTooltip('destroy');
 </script>
 ```
-
+<code>updateTemplate</code> - update template current tooltip (need to install option dinamicTemplate in true)
+```html
+<script>
+    $('.js-mytooltip').myTooltip('updateTemplate', newTemplate);
+</script>
+```
 
 ##Browser Support
 All modern browsers and IE9+
