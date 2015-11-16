@@ -38,7 +38,7 @@
   /**
    * Set global events
    */
-  $(document).on('mouseleave', '.' + tooltipClasses.hover, function (event) {
+  $(document).on('mouseleave', '.' + tooltipClasses.hover, function () {
     methods.hide();
   });
 
@@ -82,7 +82,7 @@
         currentOptions.content = selfTitle ? selfTitle : currentOptions.content;
       }
       else {
-        var html = methods.getHtmlTemplate(currentOptions.content);
+        var html = methods.getHtmlTemplate(currentOptions.content, currentOptions);
         if(html !== false) currentOptions.content = html;
       }
 
@@ -129,7 +129,7 @@
 
       if(options.dinamicContent) {
         content = current.attr('data-mytooltip-content');
-        html = methods.getHtmlTemplate(content);
+        html = methods.getHtmlTemplate(content, options);
         content = html !== false ? html : content;
       }
 
@@ -153,9 +153,10 @@
     /**
      * getHtmlTemplate
      * @param string - selector
+     * @param options - current options
      * @returns {*} - HTML content or string
      */
-    getHtmlTemplate: function(string) {
+    getHtmlTemplate: function (string, options) {
 
       try {
         var selector = string.trim();
@@ -165,7 +166,9 @@
         return false;
       }
       catch (err) {
-        methods.error('Attention! ' + err);
+        if(options.debug) {
+          methods.error('Attention! ' + err);
+        }
         return false;
       }
     },
@@ -230,7 +233,9 @@
           }, duration);
           break;
         default :
-          methods.error('Direction: ' + options.direction + ' not found!');
+          if(options.debug) {
+            methods.error('Direction: ' + options.direction + ' not found!');
+          }
           return false;
       }
 
@@ -411,7 +416,9 @@
             break;
 
           default:
-            methods.error('Direction: ' + options.direction + ' not found!');
+            if(options.debug) {
+              methods.error('Direction: ' + options.direction + ' not found!');
+            }
             return false;
         }
 
@@ -469,7 +476,9 @@
           });
           break;
         default:
-          methods.error('Action: ' + options.action + ' not found!');
+          if(options.debug) {
+            methods.error('Action: ' + options.action + ' not found!');
+          }
           return false;
       }
 
@@ -517,8 +526,8 @@
         'direction'       : 'top',
         'offset'          : 10,
         'customClass'     : '',
-        'content'        : '',
-        'dinamicContent': false,
+        'content'         : '',
+        'dinamicContent'  : false,
         'action'          : 'hover',
         'theme'           : 'default',
         'ignoreClass'     : 'js-mytooltip-ignore',
@@ -528,7 +537,8 @@
         'hideTime'        : false,
         'hoverTooltip'    : true,
         'animateOffsetPx' : 15,
-        'animateDuration' : 200
+        'animateDuration' : 200,
+        'debug'           : true
       }
 
     },
@@ -569,7 +579,7 @@
         methods.create(tooltipsStorage[id]);
       }
       else {
-        methods.error('Method Call: ID not found!');
+          methods.error('Method Call: ID not found!');
       }
 
     },

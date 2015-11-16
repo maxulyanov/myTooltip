@@ -118,6 +118,12 @@ Options list:
       <td><code>Number</code></td>
       <td><code>200</code></td>
     </tr>
+    <tr>
+      <td>debug</td>
+      <td>Debug report from console except public method and jQuery fn</td>
+      <td><code>Boolean</code></td>
+      <td><code>true</code></td>
+    </tr> 
 </table>
 
 
