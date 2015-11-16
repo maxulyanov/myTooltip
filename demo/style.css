@@ -245,12 +245,12 @@ body {
 }
 
 /**/
-.mytooltip-template {
+.mytooltip-content {
   width: 250px;
   font-size: 14px;
 }
 
-.mytooltip-template img {
+.mytooltip-content img {
   margin-bottom: 10px;
 }
 

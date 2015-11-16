@@ -41,16 +41,16 @@ Options list:
       <td><code>10</code></td>
     </tr> 
     <tr>
-      <td>customClass</td>
-      <td>Add custom class to the current tooltip</td>
+      <td>content</td>
+      <td>Present content</td>
       <td><code>String</code></td>
       <td><code>''</code></td>
     </tr>
     <tr>
-      <td>template</td>
-      <td>Present content</td>
-      <td><code>String</code></td>
-      <td><code>''</code></td>
+      <td>dinamicContent</td>
+      <td>Ability to change content</td>
+      <td><code>Boolean</code></td>
+      <td><code>false</code></td>
     </tr>
     <tr>
       <td>action</td>
@@ -65,10 +65,10 @@ Options list:
       <td><code>'default'</code></td>
     </tr>
     <tr>
-      <td>dinamicTemplate</td>
-      <td>Ability to change template</td>
-      <td><code>Boolean</code></td>
-      <td><code>false</code></td>
+      <td>customClass</td>
+      <td>Add custom class to the current tooltip</td>
+      <td><code>String</code></td>
+      <td><code>''</code></td>
     </tr>
     <tr>
       <td>ignoreClass</td>
@@ -130,26 +130,26 @@ Example:
 - etc
 
 
-##Template
+##Content
 - Javascript option:
 ```html
 <script>
-  $('.js-mytooltip-template').myTooltip({
-   'template': '<a href="https://en.wikipedia.org/wiki/Mars" target="_blank">read more</a>'
+  $('.js-mytooltip-content').myTooltip({
+   'content': '<a href="https://en.wikipedia.org/wiki/Mars" target="_blank">read more</a>'
   });
 </script>
 ```
 
 - Html data attributes:
 ```html
- <div class="js-mytooltip-template"
-    data-mytooltip-template="<a href="https://en.wikipedia.org/wiki/Mars" target="_blank">read more</a>
+ <div class="js-mytooltip-content"
+    data-mytooltip-content="<a href="https://en.wikipedia.org/wiki/Mars" target="_blank">read more</a>
  </div>
 ```
 - Dom container:
 ```html
- <div class="js-mytooltip-template" data-mytooltip-template=".wrapper-template"></div>
- <div class="wrapper-template" <a href="https://en.wikipedia.org/wiki/Mars" target="_blank">read more</a></div>
+ <div class="js-mytooltip-content" data-mytooltip-content=".wrapper-content"></div>
+ <div class="wrapper-content" <a href="https://en.wikipedia.org/wiki/Mars" target="_blank">read more</a></div>
 ```
 
 
@@ -207,10 +207,10 @@ Events list:<br>
     $('.js-mytooltip').myTooltip('destroy');
 </script>
 ```
-<code>updateTemplate</code> - update template current tooltip (need to install option dinamicTemplate in true)
+<code>updateContent</code> - update content current tooltip (need to install option dinamicContent in true)
 ```html
 <script>
-    $('.js-mytooltip').myTooltip('updateTemplate', newTemplate);
+    $('.js-mytooltip').myTooltip('updateContent', new Content);
 </script>
 ```
 

@@ -6,12 +6,12 @@ $(document).ready(function() {
 
   $('.js-mytooltip').myTooltip();
 
-  $('.js-mytooltip-template').myTooltip({
+  $('.js-mytooltip-content').myTooltip({
     'offset': 15,
     'theme': 'light',
-    'customClass': 'mytooltip-template',
+    'customClass': 'mytooltip-content',
     'cursorHelp': true,
-    'template':
+    'content':
     '<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Mars_23_aug_2003_hubble.jpg/1024px-Mars_23_aug_2003_hubble.jpg">' +
     'Mars is the fourth planet from the Sun and the second smallest planet in the Solar System, after Mercury.' +
     '  Named after the Roman god of war, it is often referred to as the "Red Planet" because the iron oxide prevalent' +
@@ -56,7 +56,7 @@ $(document).ready(function() {
     event.preventDefault();
     $(this).after('<br><div style="margin: 10px 0;" class="js-mytooltip type-inline-block style-block style-block-three"' +
         ' data-mytooltip-animate-duration="150" data-mytooltip-direction="left" data-mytooltip-custom-class="align-center"' +
-        ' data-mytooltip-template="Wow!<br> This dinamic element!">New element</div>');
+        ' data-mytooltip-content="Wow!<br> This dinamic element!">New element</div>');
 
     $('.js-mytooltip').myTooltip('update');
 
@@ -73,7 +73,7 @@ $(document).ready(function() {
 
     // tooltip
     var tooltip = $('.js-mytooltip[data-mytooltip-id="' + $(this).parents('div').last().data('mytooltip-id') + '"]');
-    tooltip.myTooltip('updateTemplate', $(this).closest('.wrap').clone().wrap('<div>').parent().html());
+    tooltip.myTooltip('updateContent', $(this).closest('.wrap').clone().wrap('<div>').parent().html());
 
   });
 

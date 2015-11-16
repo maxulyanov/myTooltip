@@ -21,7 +21,7 @@
     </div>
     <a href="https://github.com/M-Ulyanov/myTooltip/archive/master.zip" class="download download-header right js-mytooltip"
        data-mytooltip-custom-class="download-tooltip"
-       data-mytooltip-template="Download in one click on GitHib"
+       data-mytooltip-content="Download in one click on GitHib"
        data-mytooltip-direction="bottom"
        data-mytooltip-theme="success"
        data-mytooltip-hide-time="2000">Download</a>
@@ -42,7 +42,7 @@
       <h3 class="content-subtitle">Directions tooltips</h3>
       <div class="js-mytooltip type-inline-block style-block style-block-one"
            data-mytooltip-custom-class="align-center"
-           data-mytooltip-template="Direction default - top">Top
+           data-mytooltip-content="Direction default - top">Top
       </div>
       <br>
       <code>data-mytooltip-direction=<span class="code-string">"top"</span></code> or
@@ -53,7 +53,7 @@
       <div class="js-mytooltip type-inline-block style-block style-block-one"
            data-mytooltip-custom-class="align-center"
            data-mytooltip-direction="right"
-           data-mytooltip-template=".tooltip-content-dom">Right
+           data-mytooltip-content=".tooltip-content-dom">Right
       </div>
       <br>
       <code>data-mytooltip-direction=<span class="code-string">"right"</span></code> or
@@ -63,7 +63,7 @@
       <div class="js-mytooltip type-inline-block style-block style-block-one"
            data-mytooltip-custom-class="align-center"
            data-mytooltip-direction="left"
-           data-mytooltip-template="Direction left">Left
+           data-mytooltip-content="Direction left">Left
       </div>
       <br>
       <code>data-mytooltip-direction=<span class="code-string">"left"</span></code> or
@@ -73,7 +73,7 @@
       <div class="js-mytooltip type-inline-block style-block style-block-one"
            data-mytooltip-custom-class="align-center"
            data-mytooltip-direction="bottom"
-           data-mytooltip-template="Direction bottom">Bottom
+           data-mytooltip-content="Direction bottom">Bottom
       </div>
       <br>
       <code>data-mytooltip-direction=<span class="code-string">"bottom"</span></code> or
@@ -89,7 +89,7 @@
       <h3 class="content-subtitle">Оffset tooltips</h3>
       <div class="js-mytooltip type-inline-block style-block style-block-two"
            data-mytooltip-custom-class="align-center"
-           data-mytooltip-template="Offset default - 10px">Default
+           data-mytooltip-content="Offset default - 10px">Default
       </div>
       <br>
       <code>data-mytooltip-offset=<span class="code-number">10</span></code> or
@@ -101,7 +101,7 @@
            data-mytooltip-custom-class="align-center"
            data-mytooltip-offset="20"
            data-mytooltip-direction="left"
-           data-mytooltip-template="Offset 20px">Offset custom
+           data-mytooltip-content="Offset 20px">Offset custom
       </div>
       <br>
       <code>data-mytooltip-offset=<span class="code-number">20</span></code> or
@@ -113,16 +113,16 @@
 
   <div class="content-block content-first">
     <div class="content-block-inner">
-      <h2 class="content-title">Templates</h2>
-      <h3 class="content-subtitle">Plain text or great HTML template</h3>
+      <h2 class="content-title">Content</h2>
+      <h3 class="content-subtitle">Plain text or great HTML content</h3>
       <div class="js-mytooltip type-inline-block style-block style-block-three"
            data-mytooltip-custom-class="align-center"
            data-mytooltip-direction="right"
-           data-mytooltip-template="<strong>plain text</strong>">hover to me
+           data-mytooltip-content="<strong>plain text</strong>">hover to me
       </div>
       <br>
-      <code>data-mytooltip-template<span class="code-string">"&lt;strong>plain text&lt;/strong>"</span></code> or
-      <code>template:<span class="code-string">'plain text'</span></code> <br>
+      <code>data-mytooltip-content<span class="code-string">"&lt;strong>plain text&lt;/strong>"</span></code> or
+      <code>content:<span class="code-string">'plain text'</span></code> <br>
       or add selector a string <code style="margin-top: 10px;"><span class="code-string">'.content-class'</span></code>
       <br>
       <br>
@@ -130,17 +130,17 @@
       <p>The chemicals allow the water to remain liquid at lower
         temperatures but also help keep it
         from boiling off in the
-        thin atmosphere of <a class="js-mytooltip-template" data-mytooltip-direction="right" href="#">Mars</a>,<br> the
+        thin atmosphere of <a class="js-mytooltip-content" data-mytooltip-direction="right" href="#">Mars</a>,<br> the
         researchers said.</p>
       <div class="js-mytooltip type-inline-block style-block style-block-three"
            data-mytooltip-custom-class="align-center"
            data-mytooltip-direction="right"
-           data-mytooltip-dinamic-template="true"
-           data-mytooltip-template="<div class='wrap'><a class='add-to-basket' href='#'>Add to basket</a><span class='count'>17</span></div>">dinamic template
+           data-mytooltip-dinamic-content="true"
+           data-mytooltip-content="<div class='wrap'><a class='add-to-basket' href='#'>Add to basket</a><span class='count'>17</span></div>">dinamic content
       </div>
       <br>
-      <code>data-mytooltip-dinamic-template=<span class="code-boolean">true</span></code> or
-      <code>dinamicTemplate:<span class="code-boolean">true</span></code>
+      <code>data-mytooltip-dinamic-content=<span class="code-boolean">true</span></code> or
+      <code>dinamicContent:<span class="code-boolean">true</span></code>
       <br>
       <br>
     </div>
@@ -152,7 +152,7 @@
       <h3 class="content-subtitle">Animation options</h3>
       <div class="js-mytooltip type-inline-block style-block style-block-four"
            data-mytooltip-custom-class="align-center"
-           data-mytooltip-template="Slow animate duration - 200mc">Animate duration default
+           data-mytooltip-content="Slow animate duration - 200mc">Animate duration default
       </div>
       <br>
       <code>data-mytooltip-animate-duration=<span class="code-number">200</span></code> or
@@ -164,7 +164,7 @@
            data-mytooltip-animate-duration="100"
            data-mytooltip-custom-class="align-center"
            data-mytooltip-direction="left"
-           data-mytooltip-template="Slow animate duration - 100mc">Fast animate duration
+           data-mytooltip-content="Slow animate duration - 100mc">Fast animate duration
       </div>
       <br>
       <code>data-mytooltip-animate-duration=<span class="code-number">100</span></code> or
@@ -174,7 +174,7 @@
       <div class="js-mytooltip type-inline-block style-block style-block-four"
            data-mytooltip-animate-duration="400"
            data-mytooltip-custom-class="align-center"
-           data-mytooltip-template="Slow animate duration - 400mc">Slow animate duration
+           data-mytooltip-content="Slow animate duration - 400mc">Slow animate duration
       </div>
       <br>
       <code>data-mytooltip-animate-duration=<span class="code-number">400</span></code> or
@@ -184,7 +184,7 @@
       <div class="js-mytooltip type-inline-block style-block style-block-four"
            data-mytooltip-custom-class="align-center"
            data-mytooltip-direction="left"
-           data-mytooltip-template="Animate offset 15px">Animate offset default
+           data-mytooltip-content="Animate offset 15px">Animate offset default
       </div>
       <br>
       <code>data-mytooltip-animate-offset-px=<span class="code-number">15</span></code> or
@@ -196,7 +196,7 @@
            data-mytooltip-custom-class="align-center"
            data-mytooltip-direction="right"
            data-mytooltip-animate-offset-px="40"
-           data-mytooltip-template="Animate offset 40px">Animate offset custom
+           data-mytooltip-content="Animate offset 40px">Animate offset custom
       </div>
       <br>
       <code>data-mytooltip-animate-offset-px=<span class="code-number">40</span></code> or
@@ -207,7 +207,7 @@
            data-mytooltip-custom-class="align-center"
            data-mytooltip-direction="bottom"
            data-mytooltip-animate-offset-px="0"
-           data-mytooltip-template="Animate offset 0px">Animate offset custom null
+           data-mytooltip-content="Animate offset 0px">Animate offset custom null
       </div>
       <br>
       <code>data-mytooltip-animate-offset-px=<span class="code-number">0</span></code> or
@@ -224,7 +224,7 @@
       <div class="js-mytooltip type-inline-block style-block style-block-one"
            data-mytooltip-custom-class="align-center"
            data-mytooltip-direction="right"
-           data-mytooltip-template="Event default - hover">Hover me
+           data-mytooltip-content="Event default - hover">Hover me
       </div>
       <br>
       <code>data-mytooltip-action=<span class="code-string">"hover"</span></code> or
@@ -236,7 +236,7 @@
            data-mytooltip-custom-class="align-center"
            data-mytooltip-direction="right"
            data-mytooltip-action="click"
-           data-mytooltip-template="Event click">Click me
+           data-mytooltip-content="Event click">Click me
       </div>
       <br>
       <code>data-mytooltip-action=<span class="code-string">"click"</span></code> or
@@ -246,17 +246,17 @@
       <h3 style="margin-bottom: 10px;text-align: left" class="content-subtitle">Focus:</h3>
       <div class="form">
         <input type="text" class="input js-mytooltip"
-               data-mytooltip-template="Enter your first name"
+               data-mytooltip-content="Enter your first name"
                data-mytooltip-theme="danger"
                data-mytooltip-action="focus"
                data-mytooltip-direction="right" placeholder="First name">
         <input type="text" class="input js-mytooltip"
-               data-mytooltip-template="Enter your last name"
+               data-mytooltip-content="Enter your last name"
                data-mytooltip-theme="danger"
                data-mytooltip-action="focus"
                data-mytooltip-direction="right" placeholder="Last name">
         <input type="email" class="input js-mytooltip"
-               data-mytooltip-template="Enter your valid Email"
+               data-mytooltip-content="Enter your valid Email"
                data-mytooltip-theme="danger"
                data-mytooltip-action="focus"
                data-mytooltip-direction="right" placeholder="Email">
@@ -275,7 +275,7 @@
       <h3 class="content-subtitle">Custom events</h3>
       <div class="js-mytooltip type-inline-block style-block style-block-two custom-event"
            data-mytooltip-custom-class="align-center"
-           data-mytooltip-template="Event log in console">Open console and hover me
+           data-mytooltip-content="Event log in console">Open console and hover me
       </div>
       <br>
       <h3 class="list-title">List of events:</h3>
@@ -325,20 +325,20 @@
       <br>
       <div class="js-mytooltip destroy-current type-inline-block style-block style-block-three"
            data-mytooltip-custom-class="align-center"
-           data-mytooltip-template="click to destroy to delete element from myTooltip">Hover me
+           data-mytooltip-content="click to destroy to delete element from myTooltip">Hover me
       </div>
       <br>
       <a class="destroy-element" href="#">Destroy this hover element</a>
       <br>
       <br>
-      <h3 class="content-subtitle align-left">updateTemplate:</h3>
+      <h3 class="content-subtitle align-left">updateContent:</h3>
       <code>
-        $(domElement).myTooltip(<span class="code-string">'updateTemplate'</span>, <span class="code-string">'template'</span>);
+        $(domElement).myTooltip(<span class="code-string">'updateContent'</span>, <span class="code-string">'content'</span>);
       </code>
       <br>
       <p style="margin-bottom: 5px;"></p>
-      need to install: <br> <code>data-mytooltip-dinamic-template=<span class="code-boolean">true</span></code> or
-      <code>dinamicTemplate:<span class="code-boolean">true</span></code>
+      need to install: <br> <code>data-mytooltip-dinamic-content=<span class="code-boolean">true</span></code> or
+      <code>dinamicContent:<span class="code-boolean">true</span></code>
       <br>
       <br>
     </div>
@@ -351,7 +351,7 @@
       <div class="js-mytooltip type-inline-block style-block style-block-four"
            data-mytooltip-custom-class="align-center"
            data-mytooltip-direction="right"
-           data-mytooltip-template="Theme default">Default
+           data-mytooltip-content="Theme default">Default
       </div>
       <br>
       <code>data-mytooltip-theme=<span class="code-string">"default"</span></code> or
@@ -363,7 +363,7 @@
            data-mytooltip-custom-class="align-center"
            data-mytooltip-direction="left"
            data-mytooltip-theme="danger"
-           data-mytooltip-template="Theme danger">Danger
+           data-mytooltip-content="Theme danger">Danger
       </div>
       <br>
       <code>data-mytooltip-theme=<span class="code-string">"danger"</span></code> or
@@ -374,7 +374,7 @@
            data-mytooltip-custom-class="align-center"
            data-mytooltip-direction="right"
            data-mytooltip-theme="warning"
-           data-mytooltip-template="Theme warning">Warning
+           data-mytooltip-content="Theme warning">Warning
       </div>
       <br>
       <code>data-mytooltip-theme=<span class="code-string">"warning"</span></code> or
@@ -385,7 +385,7 @@
            data-mytooltip-custom-class="align-center"
            data-mytooltip-direction="left"
            data-mytooltip-theme="info"
-           data-mytooltip-template="Theme info">Info
+           data-mytooltip-content="Theme info">Info
       </div>
       <br>
       <code>data-mytooltip-theme=<span class="code-string">"info"</span></code> or
@@ -396,7 +396,7 @@
            data-mytooltip-custom-class="align-center"
            data-mytooltip-direction="right"
            data-mytooltip-theme="success"
-           data-mytooltip-template="Theme success">Success
+           data-mytooltip-content="Theme success">Success
       </div>
       <br>
       <code>data-mytooltip-theme=<span class="code-string">"success"</span></code> or
@@ -407,7 +407,7 @@
            data-mytooltip-custom-class="align-center"
            data-mytooltip-direction="left"
            data-mytooltip-theme="light"
-           data-mytooltip-template="Theme light">Light
+           data-mytooltip-content="Theme light">Light
       </div>
       <br>
       <code>data-mytooltip-theme=<span class="code-string">"light"</span></code> or
@@ -423,7 +423,7 @@
       <h3 class="content-subtitle">Your custom style</h3>
       <div class="js-mytooltip type-inline-block style-block style-block-one"
            data-mytooltip-custom-class="my-tooltip align-center"
-           data-mytooltip-template="Add class custom style">My tooltip
+           data-mytooltip-content="Add class custom style">My tooltip
       </div>
       <br>
       <code>data-mytooltip-custom-class=<span class="code-string">"my-tooltip"</span></code> or
@@ -441,7 +441,7 @@
            data-mytooltip-custom-class="align-center"
            data-mytooltip-direction="right"
            data-mytooltip-cursor-help="true"
-           data-mytooltip-template="Cursor help">?
+           data-mytooltip-content="Cursor help">?
       </div>
       <br>
       <code>data-mytooltip-cursor-help=<span class="code-boolean">true</span></code> or
@@ -452,7 +452,7 @@
            data-mytooltip-custom-class="align-center"
            data-mytooltip-hover-tooltip="false"
            data-mytooltip-direction="left"
-           data-mytooltip-template="Try it hover">Hover me
+           data-mytooltip-content="Try it hover">Hover me
       </div>
       <br>
       <code>data-mytooltip-hover-tooltip=<span class="code-boolean">false</span></code> or
@@ -463,7 +463,7 @@
            data-mytooltip-custom-class="align-center"
            data-mytooltip-direction="right"
            data-mytooltip-disposable="true"
-           data-mytooltip-template="Disposable tip">Disposable
+           data-mytooltip-content="Disposable tip">Disposable
       </div>
       <br>
       <code>data-mytooltip-disposable=<span class="code-boolean">true</span></code> or
@@ -474,7 +474,7 @@
            data-mytooltip-custom-class="align-center"
            data-mytooltip-hide-time="1000"
            data-mytooltip-direction="right"
-           data-mytooltip-template="<strong>Show one second</strong>">Show one second
+           data-mytooltip-content="<strong>Show one second</strong>">Show one second
       </div>
       <br>
       <code>data-mytooltip-hide-time=<span class="code-number">1000</span></code> or
@@ -483,7 +483,7 @@
       <br>
       <div class="js-mytooltip type-inline-block style-block style-block-two js-mytooltip-ignore"
            data-mytooltip-custom-class="align-center"
-           data-mytooltip-template="No show">No show
+           data-mytooltip-content="No show">No show
       </div>
       <br>
       <div style="margin-bottom: 10px;">Add class <code><span class="code-string">"js-mytooltip-ignore"</span></code> to DOM element or set user class:</div>
@@ -500,13 +500,13 @@
           <li><a class="example-nav-item js-mytooltip"
                  data-mytooltip-custom-class="align-center dropdown-menu-custom"
                  data-mytooltip-direction="bottom"
-                 data-mytooltip-template=".js-dropdown-menu" href="#">Parent Item</a></li>
+                 data-mytooltip-content=".js-dropdown-menu" href="#">Parent Item</a></li>
           <li><a class="example-nav-item" href="#">Static Item</a></li>
         </ul>
       </nav>
       <br>
       <div style="margin-bottom: 10px;">Add a class DOM element:</div>
-      <code>data-mytooltip-template=<span class="code-string">'.js-dropdown-menu'</span></code>
+      <code>data-mytooltip-content=<span class="code-string">'.js-dropdown-menu'</span></code>
       <br>
       <br>
       <p class="js-p-title"><span style="    margin-bottom: 5px;

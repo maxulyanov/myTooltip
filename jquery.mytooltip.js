@@ -79,14 +79,14 @@
 
       if(methods.stringToBoolean(currentOptions.fromTitle)) {
         var selfTitle = self.attr('title');
-        currentOptions.template = selfTitle ? selfTitle : currentOptions.template;
+        currentOptions.content = selfTitle ? selfTitle : currentOptions.content;
       }
       else {
-        var html = methods.getHtmlTemplate(currentOptions.template);
-        if(html !== false) currentOptions.template = html;
+        var html = methods.getHtmlTemplate(currentOptions.content);
+        if(html !== false) currentOptions.content = html;
       }
 
-      if(currentOptions.template == '') return;
+      if(currentOptions.content == '') return;
 
 
       tooltipsStorage[id] = {
@@ -124,17 +124,17 @@
 
       var options = data.options;
       var direction = directionClasses[options.direction];
-      var template = options.template;
+      var content = options.content;
       var html = null;
 
-      if(options.dinamicTemplate) {
-        template = current.attr('data-mytooltip-template');
-        html = methods.getHtmlTemplate(template);
-        template = html !== false ? html : template;
+      if(options.dinamicContent) {
+        content = current.attr('data-mytooltip-content');
+        html = methods.getHtmlTemplate(content);
+        content = html !== false ? html : content;
       }
 
       var tooltip = $('<div style="display: none;" data-mytooltip-id="' + id + '" class="mytooltip system-mytooltip--' +
-          options.action + ' ' + tooltipClasses.item + ' ' + direction + ' ' + options.customClass + '">' + template + '</div>');
+          options.action + ' ' + tooltipClasses.item + ' ' + direction + ' ' + options.customClass + '">' + content + '</div>');
 
       if (options.theme) {
         tooltip.addClass('mytooltip-theme-' + options.theme);
@@ -153,7 +153,7 @@
     /**
      * getHtmlTemplate
      * @param string - selector
-     * @returns {*} - HTML template or string
+     * @returns {*} - HTML content or string
      */
     getHtmlTemplate: function(string) {
 
@@ -509,7 +509,7 @@
 
     /**
      *
-     * @returns {{direction: string, offset: number, customClass: string, template: null, action: string, theme: string, cursorHelp: boolean, hoverTooltip: boolean, animateOffsetPx: number, animateDuration: number}}
+     * @returns {{direction: string, offset: number, customClass: string, content: null, action: string, theme: string, cursorHelp: boolean, hoverTooltip: boolean, animateOffsetPx: number, animateDuration: number}}
      */
     getDefaultOptions: function () {
 
@@ -517,8 +517,8 @@
         'direction'       : 'top',
         'offset'          : 10,
         'customClass'     : '',
-        'template'        : '',
-        'dinamicTemplate': false,
+        'content'        : '',
+        'dinamicContent': false,
         'action'          : 'hover',
         'theme'           : 'default',
         'ignoreClass'     : 'js-mytooltip-ignore',
@@ -585,12 +585,12 @@
     },
 
     /**
-     * Update template
+     * Update content
      * @param params - object options
      */
-    updateTemplate: function(params) {
+    updateContent: function(params) {
 
-      $(this).attr('data-mytooltip-template', params.args[1]);
+      $(this).attr('data-mytooltip-content', params.args[1]);
 
     },
 
