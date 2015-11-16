@@ -141,3 +141,8 @@
   margin-top: -9px;
   right: -9px;
 }
+.mytooltip.mytooltip-noshow-arrow:before,
+.mytooltip.mytooltip-noshow-arrow:after {
+  content: '';
+  display: none;
+}

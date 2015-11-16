@@ -81,12 +81,18 @@ Options list:
       <td>Disposable call and remove element</td>
       <td><code>Boolean</code></td>
       <td><code>false</code></td>
-    </tr>    
+    </tr>
     <tr>
       <td>fromTitle</td>
       <td>Take content from native title attributes</td>
       <td><code>Boolean</code></td>
       <td><code>false</code></td>
+    </tr>  
+    <tr>
+      <td>showArrow</td>
+      <td>Show arrow current tooltip</td>
+      <td><code>Boolean</code></td>
+      <td><code>true</code></td>
     </tr>    
     <tr>
       <td>cursorHelp</td>

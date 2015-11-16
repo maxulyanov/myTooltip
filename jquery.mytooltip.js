@@ -136,6 +136,10 @@
       var tooltip = $('<div style="display: none;" data-mytooltip-id="' + id + '" class="mytooltip system-mytooltip--' +
           options.action + ' ' + tooltipClasses.item + ' ' + direction + ' ' + options.customClass + '">' + content + '</div>');
 
+      if(!methods.stringToBoolean(options.showArrow)) {
+        tooltip.addClass('mytooltip-noshow-arrow');
+      }
+
       if (options.theme) {
         tooltip.addClass('mytooltip-theme-' + options.theme);
       }
@@ -166,7 +170,7 @@
         return false;
       }
       catch (err) {
-        if(options.debug) {
+        if (methods.stringToBoolean(options.debug)) {
           methods.error('Attention! ' + err);
         }
         return false;
@@ -233,7 +237,7 @@
           }, duration);
           break;
         default :
-          if(options.debug) {
+          if (methods.stringToBoolean(options.debug)) {
             methods.error('Direction: ' + options.direction + ' not found!');
           }
           return false;
@@ -416,7 +420,7 @@
             break;
 
           default:
-            if(options.debug) {
+            if (methods.stringToBoolean(options.debug)) {
               methods.error('Direction: ' + options.direction + ' not found!');
             }
             return false;
@@ -476,7 +480,7 @@
           });
           break;
         default:
-          if(options.debug) {
+          if (methods.stringToBoolean(options.debug)) {
             methods.error('Action: ' + options.action + ' not found!');
           }
           return false;
@@ -531,6 +535,7 @@
         'action'          : 'hover',
         'theme'           : 'default',
         'ignoreClass'     : 'js-mytooltip-ignore',
+        'showArrow'       : true,
         'disposable'      : false,
         'fromTitle'       : false,
         'cursorHelp'      : false,
