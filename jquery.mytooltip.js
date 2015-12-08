@@ -17,7 +17,8 @@
     'item'   : 'system-mytooltip--item',
     'hover'  : 'system-mytooltip--hover',
     'backing': 'system-mytooltip--backing',
-    'help'   : 'mytooltip--cursor-help'
+    'help'   : 'mytooltip--cursor-help',
+    'close'  : 'js-mytooltip-close'
   };
 
   var directionClasses = {
@@ -43,10 +44,16 @@
   });
 
   $(document).on('click', function (event) {
-    if (!$(event.target).hasClass(tooltipClasses.base)) {
-      tooltipLastShowId = false;
-      methods.hide();
-    }
+    var $target = $(event.target);
+    if($target.hasClass(tooltipClasses.base) ||
+      ($target.closest('.' + tooltipClasses.item).length && !$target.hasClass(tooltipClasses.close)))
+        return;
+
+    tooltipLastShowId = false;
+    methods.hide();
+
+
+
   });
 
   // Add support trim method
