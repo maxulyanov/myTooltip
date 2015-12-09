@@ -1,4 +1,4 @@
-// myTooltip Plugin v1.0.1 for jQuery
+// myTooltip Plugin v1.1 for jQuery
 // Author: M.Ulyanov
 // Created: 29/09/2015
 // Example: - http://m-ulyanov.github.io/mytooltip/
