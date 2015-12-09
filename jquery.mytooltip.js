@@ -325,11 +325,11 @@
         $('.' + tooltipClasses.item).remove();
       }
 
-      methods.callEvents(base, eventsNames.hideComplete);
-
       if(tooltipsStorage[id].options.disposable) {
         methods.destroy({'id':id});
       }
+
+      methods.callEvents(base, eventsNames.hideComplete);
 
     },
 
