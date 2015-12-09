@@ -113,6 +113,40 @@
 
   <div class="content-block content-first">
     <div class="content-block-inner">
+      <h2 class="content-title">Border</h2>
+      <h3 class="content-subtitle">border position tooltip</h3>
+      <div class="form">
+        <input type="text" class="input js-mytooltip" placeholder="Title..."
+               data-mytooltip-theme="danger"
+               data-mytooltip-custom-class="align-center form-tooltip-border"
+               data-mytooltip-direction="bottom"
+               data-mytooltip-content="border position - closer"
+               data-mytooltip-action="focus">
+      </div>
+      <code>data-mytooltip-border=<span class="code-string">'closer'</span></code> or
+      <code>border:<span class="code-string">'closer'</span></code>
+      <span class="code-info">- This default value</span>
+      <br>
+      <br>
+      <div class="form">
+        <textarea type="text" class="textarea js-mytooltip" placeholder="Short Description For Your Article..."
+               data-mytooltip-theme="danger"
+               data-mytooltip-custom-class="align-center form-tooltip-border"
+               data-mytooltip-direction="bottom"
+               data-mytooltip-offset="40"
+               data-mytooltip-border="far"
+               data-mytooltip-content="border position - far and offset 40px"
+               data-mytooltip-action="focus"></textarea>
+      </div>
+      <code>data-mytooltip-border=<span class="code-string">'far'</span></code> or
+      <code>border:<span class="code-string">'far'</span></code>
+      <br>
+      <br>
+    </div>
+  </div>
+
+  <div class="content-block content-second">
+    <div class="content-block-inner">
       <h2 class="content-title">Content</h2>
       <h3 class="content-subtitle">Plain text or great HTML content</h3>
       <div class="js-mytooltip type-inline-block style-block style-block-three"
@@ -146,7 +180,7 @@
     </div>
   </div>
 
-  <div class="content-block content-second">
+  <div class="content-block content-first">
     <div class="content-block-inner">
       <h2 class="content-title">Animation</h2>
       <h3 class="content-subtitle">Animation options</h3>
@@ -217,7 +251,7 @@
     </div>
   </div>
 
-  <div class="content-block content-first">
+  <div class="content-block content-second">
     <div class="content-block-inner">
       <h2 class="content-title">Actions</h2>
       <h3 class="content-subtitle">Support actions</h3>
@@ -269,7 +303,7 @@
     </div>
   </div>
 
-  <div class="content-block content-second">
+  <div class="content-block content-first">
     <div class="content-block-inner">
       <h2 class="content-title">Events</h2>
       <h3 class="content-subtitle">Custom events</h3>
@@ -296,7 +330,7 @@
     </div>
   </div>
 
-  <div class="content-block content-first">
+  <div class="content-block content-second">
     <div class="content-block-inner">
       <h2 class="content-title">Methods</h2>
       <h3 class="content-subtitle">Public methods</h3>
@@ -344,7 +378,7 @@
     </div>
   </div>
 
-  <div class="content-block content-second">
+  <div class="content-block content-first">
     <div class="content-block-inner">
       <h2 class="content-title">Themes</h2>
       <h3 class="content-subtitle">Ready-to-use</h3>
@@ -417,7 +451,7 @@
     </div>
   </div>
 
-  <div class="content-block content-first">
+  <div class="content-block content-second">
     <div class="content-block-inner">
       <h2 class="content-title">Custom theme</h2>
       <h3 class="content-subtitle">Your custom style</h3>
@@ -433,7 +467,7 @@
    </div>
   </div>
 
-  <div class="content-block content-second">
+  <div class="content-block content-first">
     <div class="content-block-inner">
       <h2 class="content-title">Others</h2>
       <h3 class="content-subtitle">Other examples</h3>
@@ -490,6 +524,17 @@
       <br>
       <code>data-mytooltip-show-arrow=<span class="code-boolean">false</span></code> or
       <code>showArrow:<span class="code-boolean">false</span></code>
+      <br>
+      <br>
+      <div class="js-mytooltip type-inline-block style-block style-block-two"
+           data-mytooltip-custom-class="align-center"
+           data-mytooltip-direction="bottom"
+           data-mytooltip-width-of-parent="100"
+           data-mytooltip-content="this width 100%">Width of the parent element in procent
+      </div>
+      <br>
+      <code>data-mytooltip-width-of-parent=<span class="code-number">100</span></code> or
+      <code>widthOfParent:<span class="code-number">100</span></code>
       <br>
       <br>
       <div class="js-mytooltip type-inline-block style-block style-block-two js-mytooltip-ignore"

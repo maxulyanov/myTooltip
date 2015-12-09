@@ -1,7 +1,7 @@
 // myTooltip Plugin v1.0.1 for jQuery
 // Author: M.Ulyanov
 // Created: 29/09/2015
-// Example: -
+// Example: - http://m-ulyanov.github.io/mytooltip/
 
 ;(function ($) {
 
@@ -365,17 +365,29 @@
 
       function setSizeTooltip() {
         sizeTooltip.height = tooltip.outerHeight();
-        sizeTooltip.width = tooltip.outerWidth();
+        sizeTooltip.width = options.widthOfParent ? (sizeElement.width / 100 * parseInt(options.widthOfParent)) : tooltip.outerWidth();
         callSwith();
       }
 
       function callSwith() {
+
+        var offsetHorizontalBorder = 0;
+        var offsetVerticalBorder = 0;
+        if(options.border === 'far') {
+          offsetHorizontalBorder = sizeElement.width;
+          offsetVerticalBorder = sizeElement.height;
+        }
+
+        if(options.widthOfParent) {
+          tooltip.css('width',  sizeTooltip.width)
+        }
+
         switch (options.direction) {
 
           case 'top':
             tooltip.css({
               'left': position.left + (sizeElement.width / 2) - (sizeTooltip.width / 2),
-              'top': position.top - sizeTooltip.height - options.offset - animateOffsetPx
+              'top': position.top - sizeTooltip.height - +options.offset - animateOffsetPx + +offsetVerticalBorder
             });
             sizeBacking = position.top - parseInt(tooltip.css('top')) - sizeTooltip.height - animateOffsetPx;
             backing.css({
@@ -387,7 +399,7 @@
 
           case 'right':
             tooltip.css({
-              'left': position.left + sizeElement.width + options.offset + animateOffsetPx,
+              'left': position.left + sizeElement.width + +options.offset + animateOffsetPx - +offsetHorizontalBorder,
               'top': position.top - (sizeTooltip.height / 2) + (sizeElement.height / 2)
             });
             sizeBacking = parseInt(tooltip.css('left')) - position.left - sizeElement.width - animateOffsetPx;
@@ -398,11 +410,11 @@
               'left': -sizeBacking
             });
             break;
-
+o;
           case 'bottom':
             tooltip.css({
               'left': position.left + (sizeElement.width / 2) - (sizeTooltip.width / 2),
-              'top': position.top + sizeElement.height + options.offset + animateOffsetPx
+              'top': position.top + sizeElement.height + +options.offset + animateOffsetPx - +offsetVerticalBorder
             });
             sizeBacking = parseInt(tooltip.css('top')) - position.top - sizeElement.height - animateOffsetPx;
             backing.css({
@@ -414,7 +426,7 @@
 
           case 'left':
             tooltip.css({
-              'left': position.left - sizeTooltip.width - options.offset - animateOffsetPx,
+              'left': position.left - sizeTooltip.width - +options.offset - animateOffsetPx + +offsetHorizontalBorder,
               'top': position.top - (sizeTooltip.height / 2) + (sizeElement.height / 2)
             });
             sizeBacking = position.left - parseInt(tooltip.css('left')) - sizeTooltip.width - animateOffsetPx;
@@ -536,12 +548,14 @@
       return {
         'direction'       : 'top',
         'offset'          : 10,
+        'border'          : 'closer',
         'customClass'     : '',
         'content'         : '',
         'dinamicContent'  : false,
         'action'          : 'hover',
         'theme'           : 'default',
         'ignoreClass'     : 'js-mytooltip-ignore',
+        'widthOfParent'   : false,
         'showArrow'       : true,
         'disposable'      : false,
         'fromTitle'       : false,

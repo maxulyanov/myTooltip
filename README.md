@@ -39,7 +39,13 @@ Options list:
       <td>Offset in px of tooltip relative to the element</td>
       <td><code>Number</code></td>
       <td><code>10</code></td>
-    </tr> 
+    </tr>
+     <tr>
+       <td>border</td>
+       <td>Border offset tooltip</td>
+       <td><code>String</code></td>
+       <td><code>'closer'</code></td>
+     </tr>
     <tr>
       <td>content</td>
       <td>Present content</td>
@@ -75,6 +81,12 @@ Options list:
       <td>Add class to element to ignore call</td>
       <td><code>String</code></td>
       <td><code>'js-mytooltip-ignore'</code></td>
+    </tr>    
+    <tr>
+      <td>widthOfParent</td>
+      <td>Width of the parent element in procent</td>
+      <td><code>Number</code></td>
+      <td><code>false</code></td>
     </tr>
     <tr>
       <td>disposable</td>
