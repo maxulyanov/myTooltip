@@ -410,7 +410,7 @@
               'left': -sizeBacking
             });
             break;
-o;
+
           case 'bottom':
             tooltip.css({
               'left': position.left + (sizeElement.width / 2) - (sizeTooltip.width / 2),
