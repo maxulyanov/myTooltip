@@ -1,7 +1,13 @@
-// myTooltip Plugin v1.1 for jQuery
-// Author: M.Ulyanov
-// Created: 29/09/2015
-// Example: - http://m-ulyanov.github.io/mytooltip/
+/*
+ * myTooltip: javascript plugin for jQuery
+ * 1.2.2
+ *
+ * By Max Ulyanov
+ * Source: https://github.com/M-Ulyanov/myTooltip
+ * Example https://m-ulyanov.github.io/myTooltip/
+ */
+
+
 
 ;(function ($) {
 
@@ -564,7 +570,7 @@
         'hoverTooltip'    : true,
         'animateOffsetPx' : 15,
         'animateDuration' : 200,
-        'debug'           : true
+        'debug'           : false
       }
 
     },
@@ -577,7 +583,12 @@
      */
     callEvents: function (current, event) {
 
-      $(current).trigger(event);
+      var content = null;
+      var id = $(current).data('mytooltip-id');
+      if (id >= 0) {
+        content = $('.' + tooltipClasses.item + '[data-mytooltip-id="' + id + '"]');
+      }
+      $(current).trigger(event, content);
 
     },
 

@@ -1,0 +1,22 @@
+{
+  "name": "my-tooltip",
+  "version": "1.2.2",
+  "description": "javascript plugin for jQuery",
+  "main": "jquery-1.11.3.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/M-Ulyanov/myTooltip.git"
+  },
+  "keywords": [
+    "tooltip"
+  ],
+  "author": "M.Ulyanov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/M-Ulyanov/myTooltip/issues"
+  },
+  "homepage": "https://github.com/M-Ulyanov/myTooltip#readme"
+}

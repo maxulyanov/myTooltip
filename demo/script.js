@@ -25,19 +25,20 @@ $(document).ready(function() {
   });
 
   // custom-events
-  $('.custom-event').on('show-before', function() {
+  $('.custom-event').on('show-before', function(event) {
     console.log('show-before!')
   });
 
-  $('.custom-event').on('show-complete', function() {
+  $('.custom-event').on('show-complete', function(event, content) {
+    console.info(content);
     console.log('show-complete!');
   });
 
-  $('.custom-event').on('hide-before', function() {
+  $('.custom-event').on('hide-before', function(event) {
     console.log('hide-before!');
   });
 
-  $('.custom-event').on('hide-complete', function() {
+  $('.custom-event').on('hide-complete', function(event) {
     console.log('hide-complete!');
   });
 
