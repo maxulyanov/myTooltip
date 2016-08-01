@@ -1,5 +1,6 @@
 # myTooltip
 Powerful and modern jQuery plugin for create tooltips!
+`npm install my-tooltip`
 
 ##Getting started
 1. Include jQuery
