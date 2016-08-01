@@ -193,19 +193,20 @@ Events list:<br>
 <code>hide-complete</code> - end hide tooltip
 ```html
 <script>
-     $('.js-mytooltip').on('show-before', function() {
+     $('.js-mytooltip').on('show-before', function(event) {
        console.log('show-before!')
      });
    
-     $('.js-mytooltip').on('show-complete', function() {
+     $('.js-mytooltip').on('show-complete', function(event, content) {
+       console.info(content);
        console.log('show-complete!');
      });
    
-     $('.js-mytooltip').on('hide-before', function() {
+     $('.js-mytooltip').on('hide-before', function(event) {
        console.log('hide-before!');
      });
    
-     $('.js-mytooltip').on('hide-complete', function() {
+     $('.js-mytooltip').on('hide-complete', function(event) {
        console.log('hide-complete!');
      });
 </script>
