@@ -189,7 +189,7 @@ Actions list:
 Events list:<br>
 <code>show-before</code> - start show tooltip<br>
 <code>show-complete</code> - end show tooltip<br>
-<code>hide-beforee</code> - start hide tooltip<br>
+<code>hide-before</code> - start hide tooltip<br>
 <code>hide-complete</code> - end hide tooltip
 ```html
 <script>
