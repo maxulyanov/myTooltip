@@ -2,7 +2,7 @@
 Powerful and modern jQuery plugin for create tooltips!<br>
 `npm install my-tooltip`
 
-##Getting started
+## Getting started
 1. Include jQuery
 2. Include myTooltip files (js and css)
 3. Call myTooltip with your options after document ready
@@ -20,7 +20,7 @@ Powerful and modern jQuery plugin for create tooltips!<br>
 </script>
 ```
 
-##Options
+## Options
 Options list:
 <table>
     <tr>
@@ -146,7 +146,7 @@ Options list:
 </table>
 
 
-##Options data-attributes
+## Options data-attributes
 All options are supported in the format data attr, uppercase symbol replace delimiter.
 Example:
 - direction: 'left' -> data-mytooltip-direction = "left"
@@ -155,7 +155,7 @@ Example:
 - etc
 
 
-##Content
+## Content
 - Javascript option:
 ```html
 <script>
@@ -178,14 +178,14 @@ Example:
 ```
 
 
-##Action
+## Action
 Actions list:
 - hover
 - click
 - focus
 
 
-##Events
+## Events
 Events list:<br>
 <code>show-before</code> - start show tooltip<br>
 <code>show-complete</code> - end show tooltip<br>
@@ -212,7 +212,7 @@ Events list:<br>
 </script>
 ```
 
-##Public methods
+## Public methods
 <code>Call</code> - show current tooltip
 ```html
 <script>
@@ -240,8 +240,8 @@ Events list:<br>
 </script>
 ```
 
-##Browser Support
+## Browser Support
 All modern browsers and IE9+
 
-##Example
+## Example
 See detail example - <a href="http://m-ulyanov.github.io/mytooltip/">myTooltip</a>
