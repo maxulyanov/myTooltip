@@ -1,17 +1,35 @@
-# myTooltip
-Powerful and modern jQuery plugin for create tooltips!<br>
-`npm install my-tooltip`
+myTooltip
+[![npm](https://img.shields.io/npm/dt/my-tooltip.svg)](https://www.npmjs.com/package/my-tooltip)
+[![npm](https://img.shields.io/npm/v/my-tooltip.svg)](https://www.npmjs.com/package/my-tooltip)
+===============
+Powerful and modern jQuery plugin for create tooltips!
 
-## Getting started
-1. Include jQuery
-2. Include myTooltip files (js and css)
-3. Call myTooltip with your options after document ready
+## Install
+```bash
+$ npm install my-tooltip --save
+```
+
+## Connection
+### JavaScript
+#### CommonJS
+```js
+import { myTooltip } from 'my-tooltip';
+```
+#### AMD
+```js
+require(['myTooltip'], function (myTooltip) {
+   // Usage
+});
+```
+### CSS
 ```html
-<link rel="stylesheet" href="jquery.mytooltip.min.css">
-<script src="jquery-1.11.3.min.js"></script>
-<script src="jquery.sticky-block.js"></script>
+<link rel="stylesheet" href="node_modules/my-tooltip/src/myTooltip.css">
+```
+
+## Usage
+```html
 <script>
-    $(document).ready(function() {
+ $(document).ready(function() {
      $('.js-mytooltip').myTooltip({
        'offset': 15,
        'theme': 'light'
@@ -24,7 +42,7 @@ Powerful and modern jQuery plugin for create tooltips!<br>
 Options list:
 <table>
     <tr>
-      <th>Name</td>
+      <th>Name</th>
       <th>Description</th>
       <th>Expected type</th>
       <th>Default Value</th>
@@ -179,6 +197,12 @@ Example:
 
 
 ## Action
+`data-mytooltip-action="${action}"` <br>
+```js
+$('.selector').myTooltip({
+   'action': ${action}
+  });
+```
 Actions list:
 - hover
 - click
