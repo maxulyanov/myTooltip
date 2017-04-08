@@ -1,6 +1,6 @@
 /*
  * myTooltip: javascript plugin for jQuery
- * 1.3.0
+ * 1.3.1
  *
  * By M.Ulyanov
  * Source: https://github.com/M-Ulyanov/myTooltip

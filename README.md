@@ -9,21 +9,18 @@ Powerful and modern jQuery plugin for create tooltips!
 $ npm install my-tooltip --save
 ```
 
-## Connection
-### JavaScript
-#### CommonJS
-```js
-import { myTooltip } from 'my-tooltip';
-```
-#### AMD
-```js
-require(['myTooltip'], function (myTooltip) {
-   // Usage
-});
-```
-### CSS
+## Start
+#### Include the CSS file
 ```html
 <link rel="stylesheet" href="node_modules/my-tooltip/src/myTooltip.css">
+```
+#### Include the JS file
+```html
+<script src="node_modules/my-tooltip/src/myTooltip.js"></script>
+```
+#### use requirejs
+```js
+require('myTooltip');
 ```
 
 ## Usage
